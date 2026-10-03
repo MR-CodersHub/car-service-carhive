@@ -17,40 +17,40 @@
         '<div class="wrap">' +
           '<div class="foot-top">' +
             '<div class="foot-brand">' +
-              '<a href="' + basePath + 'index.html" class="logo"><img src="' + basePath + 'assets/img/logo.png" alt="MOTORWORKS Logo" class="logo-img"><span class="logo-text-group"><span class="logo-brand-title">MOTORWORKS</span></span></a>' +
-              '<p>Precision automotive service, diagnostics, maintenance, and repair for European, American, Asian, and Electric vehicles.</p>' +
+              '<a href="' + basePath + 'index.html" class="logo"><img src="' + basePath + 'assets/img/logo.png" alt="Car Hive Logo" class="logo-img"><span class="logo-text-group"><span class="logo-brand-title">CAR HIVE</span></span></a>' +
+              '<p>Doorstep battery testing, replacement, and jump-starts for all makes and models. A certified technician comes to your home, office, or roadside — usually within the hour.</p>' +
               '<div class="foot-emergency-box">' +
-                '<span class="foot-emergency-label">24/7 EMERGENCY &amp; TOWING:</span>' +
+                '<span class="foot-emergency-label">24/7 EMERGENCY &amp; JUMP-START:</span>' +
                 '<a href="tel:+13125550148" class="foot-emergency-phone">+1 (312) 555-0148</a>' +
               '</div>' +
             '</div>' +
             '<div class="foot-col">' +
-              '<h5>Services</h5>' +
-              '<a href="' + basePath + 'public/pages/service-details.html?id=oil-filter">Oil &amp; Filter Care</a>' +
-              '<a href="' + basePath + 'public/pages/service-details.html?id=brake-suspension">Brakes &amp; Suspension</a>' +
-              '<a href="' + basePath + 'public/pages/service-details.html?id=tyres-alignment">Tyres &amp; 3D Alignment</a>' +
-              '<a href="' + basePath + 'public/pages/service-details.html?id=computer-diagnostics">ECU Computer Scan</a>' +
-              '<a href="' + basePath + 'public/pages/service-details.html?id=battery-electrical">EV &amp; Hybrid Battery</a>' +
+              '<h5>Battery Services</h5>' +
+              '<a href="' + basePath + 'public/pages/service-details.html?id=battery-test">Battery Testing — $29</a>' +
+              '<a href="' + basePath + 'public/pages/service-details.html?id=battery-replace">Battery Replacement — from $149</a>' +
+              '<a href="' + basePath + 'public/pages/service-details.html?id=jump-start">Roadside Jump-Start — $49</a>' +
+              '<a href="' + basePath + 'public/pages/service-details.html?id=ev-battery">EV &amp; Hybrid Battery</a>' +
+              '<a href="' + basePath + 'public/pages/service-details.html?id=drain-diagnosis">Parasitic Drain Diagnosis</a>' +
             '</div>' +
             '<div class="foot-col">' +
-              '<h5>Company &amp; Booking</h5>' +
-              '<a href="' + basePath + 'public/pages/booking.html">Book Service Bay</a>' +
-              '<a href="' + basePath + 'public/pages/about.html">About Workshop</a>' +
-              '<a href="' + basePath + 'public/pages/blog.html">Knowledge Hub</a>' +
-              '<a href="' + basePath + 'public/pages/pricing.html">Maintenance Plans</a>' +
+              '<h5>Book &amp; Manage</h5>' +
+              '<a href="' + basePath + 'public/pages/booking.html">Book a Doorstep Visit</a>' +
+              '<a href="' + basePath + 'public/pages/pricing.html">Pricing Guide</a>' +
+              '<a href="' + basePath + 'public/auth/login.html">Login to My Requests</a>' +
+              '<a href="' + basePath + 'auth/user/user-dashboard.html">Request Dashboard</a>' +
               '<a href="' + basePath + 'public/pages/faq.html">FAQs</a>' +
             '</div>' +
             '<div class="foot-col">' +
-              '<h5>Hours &amp; Location</h5>' +
-              '<p style="color:var(--steel);font-size:13px;margin-bottom:8px;"><strong>Mon - Fri:</strong> 7:30 AM – 6:00 PM</p>' +
-              '<p style="color:var(--steel);font-size:13px;margin-bottom:8px;"><strong>Sat:</strong> 8:00 AM – 4:00 PM</p>' +
-              '<p style="color:var(--steel);font-size:13px;margin-bottom:12px;"><strong>Sun:</strong> Emergency Callouts Only</p>' +
-              '<p style="color:var(--steel);font-size:12px;line-height:1.5;">2847 W. Industrial Blvd, Chicago, IL</p>' +
+              '<h5>Service Hours</h5>' +
+              '<p style="color:var(--steel);font-size:13px;margin-bottom:8px;"><strong>Mon - Fri:</strong> 7:00 AM – 9:00 PM</p>' +
+              '<p style="color:var(--steel);font-size:13px;margin-bottom:8px;"><strong>Sat - Sun:</strong> 8:00 AM – 6:00 PM</p>' +
+              '<p style="color:var(--steel);font-size:13px;margin-bottom:12px;"><strong>Emergency Jump-Starts:</strong> 24/7</p>' +
+              '<p style="color:var(--steel);font-size:12px;line-height:1.5;">help@carhive.co</p>' +
             '</div>' +
           '</div>' +
           '<div class="foot-bottom">' +
-            '<span>&copy; 2026 MOTORWORKS PRECISION VEHICLE SERVICE CENTER. ALL RIGHTS RESERVED.</span>' +
-            '<span>All Bays ASE Master Certified &nbsp;&bull;&nbsp; OEM Parts Guaranteed</span>' +
+            '<span>&copy; 2026 CAR HIVE — DOORSTEP BATTERY SERVICE. ALL RIGHTS RESERVED.</span>' +
+            '<span>Certified Mobile Technicians &nbsp;&bull;&nbsp; 24-Month Warranty on All Parts</span>' +
           '</div>' +
         '</div>' +
       '</footer>';
@@ -62,8 +62,8 @@
     }
   }
 
-  window.MotorWorks = window.MotorWorks || {};
-  window.MotorWorks.renderFooter = renderFooter;
+  window.CarHive = window.CarHive || {};
+  window.CarHive.renderFooter = renderFooter;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', renderFooter);

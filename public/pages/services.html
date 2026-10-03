@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Services — MOTORWORKS Vehicle Care</title>
+<title>Battery Services — Car Hive | Testing, Replacement & Jump-Starts</title>
+<meta name="description" content="Car Hive offers doorstep battery testing, OEM replacement, and roadside jump-starts. Clear fixed prices, certified technicians, no workshop visit.">
 <link rel="icon" href="../../assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../src/css/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../src/css/styles.css">
 </head>
 <body>
 
@@ -20,109 +22,198 @@
 <section class="hero-mini">
   <div class="wrap">
     <span class="sec-tag">WHAT WE DO</span>
-    <h1 style="font-size: clamp(40px, 6vw, 64px); font-weight: 800; margin: 12px 0 18px; line-height: 1.05;">Comprehensive Automotive Services &amp; Diagnostics</h1>
-    <p style="font-size: 18px; line-height: 1.65; color: var(--steel); max-width: 780px;">From routine synthetic maintenance to dealership-level ECU diagnostics, MOTORWORKS delivers complete vehicle care backed by ASE Master Certification and state-of-the-art diagnostic equipment. Every job is signed off with total transparency.</p>
+    <h1>Battery services, at your door</h1>
+    <p>Three core services cover almost every flat battery: a health test, a replacement, or a jump-start. Every one is a fixed price, done on site, and backed by a 24-month parts warranty.</p>
   </div>
 </section>
 
-<section style="padding:40px 0 40px;">
+<!-- CORE SERVICE PRICES -->
+<section style="padding: 40px 0 20px;">
   <div class="wrap">
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <button class="services-filter-btn filter-btn active" data-filter="all">All Services</button>
-      <button class="services-filter-btn filter-btn" data-filter="maintenance">Maintenance</button>
-      <button class="services-filter-btn filter-btn" data-filter="safety">Safety &amp; Brakes</button>
-      <button class="services-filter-btn filter-btn" data-filter="diagnostics">ECU Diagnostics</button>
-      <button class="services-filter-btn filter-btn" data-filter="cosmetic">Detailing &amp; Paint</button>
-      <button class="services-filter-btn filter-btn" data-filter="electrical">Battery &amp; EV</button>
+    <div class="sec-head">
+      <div>
+        <span class="sec-tag">01 — CORE SERVICES</span>
+        <h2>Testing, replacement, jump-starts.</h2>
+      </div>
+      <a href="../../public/pages/pricing.html" class="btn">See the pricing guide</a>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-img">
+          <span class="svc-code">SVC / 01</span>
+          <a href="service-details.html?id=battery-test"><img src="../../assets/img/battery-service.jpg" alt="Battery health testing at the customer's location"></a>
+        </div>
+        <div class="svc-body">
+          <h3>Battery Testing</h3>
+          <div class="svc-meta"><span class="svc-price">$29</span><span class="svc-price-note">20 min on site</span></div>
+          <p>Load test, cold-cranking amp check, and alternator output reading, with a written health report you can keep.</p>
+          <ul class="pricing-features">
+            <li>Full CCA load test</li>
+            <li>Alternator output check</li>
+            <li>Written health report</li>
+          </ul>
+          <a href="../../public/pages/booking.html" class="btn btn-block">Book a test</a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-img">
+          <span class="svc-code">SVC / 02</span>
+          <a href="service-details.html?id=battery-replace"><img src="../../assets/img/diagnostics-service.jpg" alt="Battery replacement carried out at home"></a>
+        </div>
+        <div class="svc-body">
+          <h3>Battery Replacement</h3>
+          <div class="svc-meta"><span class="svc-price">From $149</span><span class="svc-price-note">parts + labour</span></div>
+          <p>OEM-spec battery fitted, registered, and reset where your car is parked. Old battery collected for recycling.</p>
+          <ul class="pricing-features">
+            <li>OEM-spec battery supplied</li>
+            <li>Fitting, registration, ECU reset</li>
+            <li>24-month parts &amp; labour warranty</li>
+          </ul>
+          <a href="../../public/pages/booking.html" class="btn btn-solid btn-block">Book a replacement</a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-img">
+          <span class="svc-code">SVC / 03</span>
+          <a href="service-details.html?id=jump-start"><img src="../../assets/img/oil-service.jpg" alt="Roadside jump-start by a Car Hive technician"></a>
+        </div>
+        <div class="svc-body">
+          <h3>Roadside Jump-Start</h3>
+          <div class="svc-meta"><span class="svc-price">$49</span><span class="svc-price-note">45 min response</span></div>
+          <p>Stranded anywhere in the city? A technician brings a professional lithium booster and gets you moving.</p>
+          <ul class="pricing-features">
+            <li>Safe lithium booster start</li>
+            <li>Petrol, diesel &amp; mild-hybrid</li>
+            <li>Free battery condition check</li>
+          </ul>
+          <a href="tel:+13125550148" class="btn btn-block">Call (312) 555-0148</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section style="padding:0 0 80px;">
+<!-- ALL SERVICES + FILTERS -->
+<section style="padding: 30px 0 70px;">
   <div class="wrap">
-    <div class="services-grid" id="servicesPageGrid">
-      <!-- Populated dynamically by main.js from window.MotorWorks.services, static fallback below -->
+    <div class="sec-head">
+      <div>
+        <span class="sec-tag">02 — ALL SERVICES</span>
+        <h2>Additional work we can handle.</h2>
+      </div>
+      <div class="services-filter-row">
+        <button class="services-filter-btn filter-btn active" data-filter="all">All</button>
+        <button class="services-filter-btn filter-btn" data-filter="testing">Testing</button>
+        <button class="services-filter-btn filter-btn" data-filter="replacement">Replacement</button>
+        <button class="services-filter-btn filter-btn" data-filter="jumpstart">Jump-Starts</button>
+        <button class="services-filter-btn filter-btn" data-filter="extra">Extras</button>
+      </div>
+    </div>
+    <div class="services-grid" id="servicesPageGrid"></div>
+  </div>
+</section>
 
-      <div class="svc-card" data-category="maintenance">
-        <div class="svc-img">
-          <span class="svc-code">SVC / 01</span>
-          <a href="service-details.html?id=oil-filter"><img src="../../assets/img/oil-service.jpg" alt="Oil & Filter Service"></a>
+<!-- INCLUDED IN EVERY VISIT -->
+<section style="padding: 80px 0; background: var(--panel-2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-tag">03 — EVERY VISIT</span>
+        <h2>What always comes included.</h2>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="vtype-card">
+        <div class="vtype-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div class="svc-body">
-          <h3>Oil &amp; Filter Service</h3>
-          <p>Full synthetic fluids, 40-point inspection, and OEM filters on every visit.</p>
-          <a href="service-details.html?id=oil-filter" class="svc-link">Learn more →</a>
+        <h4>Certified Technicians</h4>
+        <p>Every job is signed off by a trained battery technician. We show ID and vehicle markings on arrival.</p>
+      </div>
+      <div class="vtype-card">
+        <div class="vtype-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h4>Price Agreed First</h4>
+        <p>You approve the price before any work starts. No callout fee on pre-booked visits, no hidden extras.</p>
+      </div>
+      <div class="vtype-card">
+        <div class="vtype-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h4>Digital Paperwork</h4>
+        <p>Test report, warranty certificate, and receipt are emailed to you the moment the job is signed off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section style="padding: 80px 0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-tag">04 — SERVICE AREAS</span>
+        <h2>Where our vans are working today.</h2>
+      </div>
+    </div>
+    <div class="biz-info-grid">
+      <div class="biz-card">
+        <div class="biz-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Same-Day Zones</h4>
+          <p><strong>City centre &amp; north:</strong> 60-minute response</p>
+          <p><strong>East &amp; west suburbs:</strong> same-day until 5:00 PM</p>
+          <p><strong>Outer areas:</strong> next-day scheduled visits</p>
         </div>
       </div>
-
-      <div class="svc-card" data-category="safety">
-        <div class="svc-img">
-          <span class="svc-code">SVC / 02</span>
-          <a href="service-details.html?id=brake-suspension"><img src="../../assets/img/brake-service.jpg" alt="Brake & Suspension"></a>
+      <div class="biz-card">
+        <div class="biz-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <div class="svc-body">
-          <h3>Brake &amp; Suspension</h3>
-          <p>Pad, rotor, and suspension diagnostics with lifetime-rated components.</p>
-          <a href="service-details.html?id=brake-suspension" class="svc-link">Learn more →</a>
-        </div>
-      </div>
-
-      <div class="svc-card" data-category="maintenance">
-        <div class="svc-img">
-          <span class="svc-code">SVC / 03</span>
-          <a href="service-details.html?id=tyres-alignment"><img src="../../assets/img/tyre-service.jpg" alt="Tyres & Alignment"></a>
-        </div>
-        <div class="svc-body">
-          <h3>Tyres &amp; Alignment</h3>
-          <p>Laser wheel alignment and balanced fitment for every tyre brand we stock.</p>
-          <a href="service-details.html?id=tyres-alignment" class="svc-link">Learn more →</a>
+        <div>
+          <h4>What Our Vans Carry</h4>
+          <p><strong>Batteries:</strong> OEM and premium for 95%+ of vehicles</p>
+          <p><strong>Equipment:</strong> load testers, boosters, terminal clamps</p>
+          <p><strong>Payment:</strong> card, cash, or invoice for businesses</p>
         </div>
       </div>
-
-      <div class="svc-card" data-category="diagnostics">
-        <div class="svc-img">
-          <span class="svc-code">SVC / 04</span>
-          <a href="service-details.html?id=computer-diagnostics"><img src="../../assets/img/diagnostics-service.jpg" alt="Computer Diagnostics"></a>
+      <div class="biz-card">
+        <div class="biz-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        <div class="svc-body">
-          <h3>Computer Diagnostics</h3>
-          <p>Manufacturer-level scan tools that read exactly what your dealer sees.</p>
-          <a href="service-details.html?id=computer-diagnostics" class="svc-link">Learn more →</a>
-        </div>
-      </div>
-
-      <div class="svc-card" data-category="cosmetic">
-        <div class="svc-img">
-          <span class="svc-code">SVC / 05</span>
-          <a href="service-details.html?id=detailing-paint"><img src="../../assets/img/detailing-service.jpg" alt="Detailing & Paint Care"></a>
-        </div>
-        <div class="svc-body">
-          <h3>Detailing &amp; Paint Care</h3>
-          <p>Correction, ceramic coating, and interior recon for showroom finish.</p>
-          <a href="service-details.html?id=detailing-paint" class="svc-link">Learn more →</a>
+        <div>
+          <h4>Not Sure Which You Need?</h4>
+          <p><strong>Call us:</strong> +1 (312) 555-0148</p>
+          <p><strong>Answer:</strong> a technician, not a call centre</p>
+          <p><strong>Or book a $29 test</strong> and we'll tell you honestly</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="svc-card" data-category="electrical">
-        <div class="svc-img">
-          <span class="svc-code">SVC / 06</span>
-          <a href="service-details.html?id=battery-electrical"><img src="../../assets/img/battery-service.jpg" alt="Battery & Electrical"></a>
-        </div>
-        <div class="svc-body">
-          <h3>Battery &amp; Electrical</h3>
-          <p>Load-testing, alternator checks, and EV/hybrid battery diagnostics.</p>
-          <a href="service-details.html?id=battery-electrical" class="svc-link">Learn more →</a>
-        </div>
-      </div>
-
+<section class="cta-band" style="min-height: 340px;">
+  <div class="cta-media"><img src="../../assets/img/bays-occupancy.jpg" alt="Car Hive mobile battery service"></div>
+  <div class="cta-content">
+    <span class="eyebrow" style="justify-content:center; color: var(--amber);">SAME-DAY SLOTS OPEN</span>
+    <h2>Book the right service in two minutes.</h2>
+    <p>Choose testing, replacement, or a jump-start and we'll send a technician to your address with a live ETA.</p>
+    <div class="cta-actions">
+      <a href="../../public/pages/booking.html" class="btn btn-solid btn-lg">Book a Doorstep Visit</a>
+      <a href="../../public/pages/pricing.html" class="btn btn-lg btn-outline-light">Check prices</a>
     </div>
   </div>
 </section>
 
 <section class="newsletter">
-  <div class="wrap" style="text-align:center;">
-    <h3>Stay in the Loop</h3>
-    <p>Maintenance tips, seasonal reminders, and exclusive offers — straight to your inbox.</p>
+  <div class="wrap">
+    <h3>Battery reminders, not spam.</h3>
+    <p>Seasonal battery care tips and member-only pricing, sent occasionally to your inbox.</p>
     <form class="newsletter-form">
       <input type="email" placeholder="you@email.com" required>
       <button type="submit" class="btn btn-solid">Subscribe</button>

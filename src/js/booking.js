@@ -24,9 +24,9 @@
     }
 
     // Populate service options if data is available
-    if (serviceSelect && window.MotorWorks && window.MotorWorks.services) {
+    if (serviceSelect && window.CarHive && window.CarHive.services) {
       serviceSelect.innerHTML = '<option value="">-- Select a Service --</option>' +
-        window.MotorWorks.services.map(function (s) {
+        window.CarHive.services.map(function (s) {
           return '<option value="' + s.id + '" data-title="' + s.title + '" data-code="' + s.code + '">' + s.title + ' (' + s.code + ')</option>';
         }).join('');
     }
@@ -89,8 +89,8 @@
       }
 
       setTimeout(function () {
-        if (window.MotorWorks && window.MotorWorks.showToast) {
-          window.MotorWorks.showToast('Service appointment confirmed! A confirmation email has been sent.', 'success');
+        if (window.CarHive && window.CarHive.showToast) {
+          window.CarHive.showToast('Service appointment confirmed! A confirmation email has been sent.', 'success');
         }
 
         // Show confirmation screen
@@ -102,11 +102,13 @@
           successContainer.style.display = 'block';
 
           // Populate success details
-          var confRef = 'MW-' + Math.floor(100000 + Math.random() * 900000);
+          var confRef = 'CH-' + Math.floor(100000 + Math.random() * 900000);
           document.getElementById('confRefNum').textContent = confRef;
           document.getElementById('confService').textContent = getSelectedServiceTitle();
           document.getElementById('confDateTime').textContent = (dateInput ? dateInput.value : '') + ' at ' + selectedTimeSlot;
           document.getElementById('confVehicle').textContent = getVehicleString();
+          var confAddress = document.getElementById('confAddress');
+          if (confAddress) confAddress.textContent = getAddressString();
         }
       }, 1000);
     });
@@ -202,6 +204,11 @@
     return (year + ' ' + make + ' ' + model).trim();
   }
 
+  function getAddressString() {
+    var address = (document.getElementById('custAddress') || {}).value || '';
+    return address.trim() || 'Not specified';
+  }
+
   function updateSummary() {
     var sumService = document.getElementById('summaryService');
     var sumVehicle = document.getElementById('summaryVehicle');
@@ -215,8 +222,8 @@
     if (sumTime) sumTime.textContent = selectedTimeSlot || 'Not selected';
   }
 
-  window.MotorWorks = window.MotorWorks || {};
-  window.MotorWorks.initBooking = initBooking;
+  window.CarHive = window.CarHive || {};
+  window.CarHive.initBooking = initBooking;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initBooking);

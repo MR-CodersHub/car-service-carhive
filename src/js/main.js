@@ -18,10 +18,10 @@
     var monthlyBtn = document.getElementById('pricingMonthly');
     var annualBtn = document.getElementById('pricingAnnual');
     var grid = document.getElementById('pricingGrid');
-    if (!monthlyBtn || !annualBtn || !grid || !window.MotorWorks) return;
+    if (!monthlyBtn || !annualBtn || !grid || !window.CarHive) return;
 
     function renderPricing(period) {
-      var plans = window.MotorWorks.pricingPlans[period];
+      var plans = window.CarHive.pricingPlans[period];
       grid.innerHTML = plans.map(function(plan) {
         return '<div class="pricing-card' + (plan.featured ? ' featured' : '') + '">' +
           '<h3>' + plan.name + '</h3>' +
@@ -79,13 +79,13 @@
 
   function initServiceDetail() {
     var container = document.getElementById('serviceDetail');
-    if (!container || !window.MotorWorks) return;
+    if (!container || !window.CarHive) return;
     var params = new URLSearchParams(window.location.search);
     var serviceId = params.get('id');
-    var services = window.MotorWorks.services;
+    var services = window.CarHive.services;
     var service = services.find(function(s) { return s.id === serviceId; }) || services[0];
     var basePath = getBasePath();
-    document.title = service.title + ' — MOTORWORKS';
+    document.title = service.title + ' — CAR HIVE';
 
     container.innerHTML =
       '<div class="wrap section-padding">' +
@@ -131,18 +131,18 @@
 
   function initBlogDetail() {
     var container = document.getElementById('blogDetail');
-    if (!container || !window.MotorWorks) return;
+    if (!container || !window.CarHive) return;
     var params = new URLSearchParams(window.location.search);
     var rawId = params.get('id') || '';
     var normalizedId = decodeURIComponent(rawId).trim().toLowerCase().replace(/\s+/g, '-');
-    var posts = window.MotorWorks.blogPosts;
+    var posts = window.CarHive.blogPosts;
     var post = posts.find(function(p) {
       var pid = p.id.toLowerCase();
       return pid === normalizedId || pid === rawId.toLowerCase() || pid === decodeURIComponent(rawId).toLowerCase();
     }) || posts[0];
 
     var basePath = getBasePath();
-    document.title = post.title + ' — MOTORWORKS';
+    document.title = post.title + ' — CAR HIVE';
 
     var imgUrl = (post.image.indexOf('http') === 0 || post.image.indexOf('/') === 0) ? post.image : (basePath + post.image);
 
@@ -190,9 +190,9 @@
   }
 
   function initNewsletter() {
-    window.MotorWorks = window.MotorWorks || {};
-    if (!window.MotorWorks.showToast) {
-      window.MotorWorks.showToast = function(message, type) {
+    window.CarHive = window.CarHive || {};
+    if (!window.CarHive.showToast) {
+      window.CarHive.showToast = function(message, type) {
         type = type || 'success';
         var container = document.querySelector('.toast-container');
         if (!container) {
@@ -219,8 +219,8 @@
     }
 
     document.querySelectorAll('.newsletter-form, form[data-type="newsletter"]').forEach(function(form) {
-      if (form.dataset.mwSubscribed) return;
-      form.dataset.mwSubscribed = 'true';
+      if (form.dataset.carhiveSubscribed) return;
+      form.dataset.carhiveSubscribed = 'true';
 
       form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -232,26 +232,26 @@
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!email) {
-          window.MotorWorks.showToast('Please enter your email address.', 'error');
+          window.CarHive.showToast('Please enter your email address.', 'error');
           input.focus();
           return;
         }
 
         if (!emailRegex.test(email)) {
-          window.MotorWorks.showToast('Please enter a valid email address (e.g. name@example.com).', 'error');
+          window.CarHive.showToast('Please enter a valid email address (e.g. name@example.com).', 'error');
           input.focus();
           return;
         }
 
         var subscribers = [];
         try {
-          subscribers = JSON.parse(localStorage.getItem('mw_newsletter_subscribers') || '[]');
+          subscribers = JSON.parse(localStorage.getItem('carhive_newsletter_subscribers') || '[]');
         } catch (err) {
           subscribers = [];
         }
 
         if (subscribers.indexOf(email.toLowerCase()) !== -1) {
-          window.MotorWorks.showToast('This email is already subscribed to our newsletter!', 'success');
+          window.CarHive.showToast('This email is already subscribed to our newsletter!', 'success');
           return;
         }
 
@@ -264,10 +264,10 @@
         setTimeout(function() {
           subscribers.push(email.toLowerCase());
           try {
-            localStorage.setItem('mw_newsletter_subscribers', JSON.stringify(subscribers));
+            localStorage.setItem('carhive_newsletter_subscribers', JSON.stringify(subscribers));
           } catch (err) {}
 
-          window.MotorWorks.showToast('Thank you for subscribing! Confirmation sent to ' + email, 'success');
+          window.CarHive.showToast('Thank you for subscribing! Confirmation sent to ' + email, 'success');
 
           if (button) {
             button.disabled = false;
@@ -285,9 +285,9 @@
           notice.style.color = 'var(--success)';
           notice.style.fontSize = '13px';
           notice.style.marginTop = '10px';
-          notice.style.fontFamily = "'IBM Plex Mono', monospace";
+          notice.style.fontFamily = "'Montserrat', 'Quicksand', sans-serif";
           notice.style.textAlign = 'center';
-          notice.innerHTML = '✓ You are subscribed! Welcome to MotorWorks updates.';
+          notice.innerHTML = '✓ You are subscribed! Welcome to CarHive updates.';
           form.parentNode.appendChild(notice);
 
           setTimeout(function() {
@@ -320,9 +320,9 @@
 
   function initServiceGrid() {
     var grid = document.getElementById('servicesPageGrid');
-    if (!grid || !window.MotorWorks) return;
+    if (!grid || !window.CarHive) return;
     var basePath = getBasePath();
-    var services = window.MotorWorks.services;
+    var services = window.CarHive.services;
 
     function render(filter) {
       var filtered = filter === 'all' ? services : services.filter(function(s) { return s.category === filter; });
@@ -357,9 +357,9 @@
 
   function initTeamGrid() {
     var grid = document.getElementById('teamGrid');
-    if (!grid || !window.MotorWorks || !window.MotorWorks.team) return;
+    if (!grid || !window.CarHive || !window.CarHive.team) return;
     var basePath = getBasePath();
-    var team = window.MotorWorks.team;
+    var team = window.CarHive.team;
     grid.innerHTML = team.map(function(member) {
       var imgUrl = (member.image.indexOf('http') === 0 || member.image.indexOf('/') === 0) ? member.image : (basePath + member.image);
       return '<div class="team-card">' +
@@ -385,8 +385,8 @@
     setTimeout(initScrollAnimations, 200);
   }
 
-  window.MotorWorks = window.MotorWorks || {};
-  window.MotorWorks.initAll = initAll;
+  window.CarHive = window.CarHive || {};
+  window.CarHive.initAll = initAll;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAll);

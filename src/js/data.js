@@ -1,269 +1,268 @@
 (function() {
-  window.MotorWorks = window.MotorWorks || {};
+  window.CarHive = window.CarHive || {};
 
-  window.MotorWorks.team = [
+  window.CarHive.team = [
     {
       id: 'marcus-vance',
       name: 'Marcus Vance',
-      role: 'Master Technician & Shop Lead',
-      bio: 'ASE Master Certified with 16+ years experience specializing in European drivetrain engineering and advanced diagnostics.',
+      role: 'Lead Mobile Battery Technician',
+      bio: 'Master-certified battery specialist with 16+ years on-site experience. Leads the Car Hive doorstep fleet and handles the hardest cold-start diagnostics.',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600'
     },
     {
       id: 'elena-rostova',
       name: 'Elena Rostova',
-      role: 'Electrical & EV Specialist',
-      bio: 'High-voltage systems expert with factory certification in modern electric, hybrid, and complex ECU electronics.',
+      role: 'EV & Hybrid Battery Specialist',
+      bio: 'Factory-certified in high-voltage systems. Handles 12V auxiliary and traction battery health checks for electric and plug-in hybrid vehicles.',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600'
     },
     {
       id: 'david-miller',
       name: 'David Miller',
-      role: 'Service Operations Manager',
-      bio: 'Oversees shop workflow, customer consultations, and quality assurance to ensure every job meets factory specifications.',
+      role: 'Dispatch & Service Manager',
+      bio: 'Runs Car Hive dispatch, scheduling, and quality checks. If you booked it, he makes sure a technician is on site with the right battery.',
       image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600'
     },
     {
       id: 'james-thorne',
       name: 'James Thorne',
-      role: 'Performance & Suspension Specialist',
-      bio: 'Track-day enthusiast and chassis setup expert specializing in precision alignment, braking systems, and custom suspension tuning.',
+      role: 'Fleet Battery Program Manager',
+      bio: 'Builds scheduled battery health programs for commercial fleets, including overnight and weekend visits with annual reporting.',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600'
     }
   ];
 
-  window.MotorWorks.services = [
+  window.CarHive.services = [
     {
-      id: 'oil-filter',
+      id: 'battery-test',
       code: 'SVC / 01',
-      title: 'Oil & Filter Service',
-      category: 'maintenance',
-      shortDesc: 'Full synthetic fluids, 40-point inspection, and OEM filters on every visit.',
-      description: 'Maintain engine longevity and thermal protection with factory-approved synthetic oils tailored to your engine specifications.',
-      image: 'assets/img/oil-service.jpg',
-      features: ['Full Synthetic Fluid Change', 'OEM Oil Filter Replacement', '40-Point Safety Inspection', 'Fluid Top-Off & Tire Pressure Adjust'],
-      pricing: [
-        { tier: 'Standard Synthetic', price: '$79', desc: 'Up to 5 Qts Mobil 1' },
-        { tier: 'Euro Spec Synthetic', price: '$119', desc: 'Liqui Moly Euro formula' }
-      ],
-      faqs: [
-        { q: 'How frequently should synthetic oil be changed?', a: 'We recommend changing synthetic oil every 5,000 to 7,500 miles or 12 months.' }
-      ]
-    },
-    {
-      id: 'brake-suspension',
-      code: 'SVC / 02',
-      title: 'Brake & Suspension',
-      category: 'safety',
-      shortDesc: 'Pad, rotor, and suspension diagnostics with lifetime-rated components.',
-      description: 'Complete brake and suspension safety overhaul using OEM or premium ceramic friction materials. Ensures silent, fade-free stopping power and smooth handling.',
-      image: 'assets/img/brake-service.jpg',
-      features: ['OEM Ceramic/Semi-Metallic Pads', 'Rotor Resurfacing or Replacement', 'High-Temp Fluid Flush', 'Suspension & Bushing Inspection'],
-      pricing: [
-        { tier: 'Front or Rear Pads', price: '$199', desc: 'Pads replacement & hardware check' },
-        { tier: 'Full Axle Overhaul', price: '$389', desc: 'New pads, rotors & fluid flush' }
-      ],
-      faqs: [
-        { q: 'How often should brakes be serviced?', a: 'Brake pads typically last 30,000–50,000 miles depending on driving style and conditions.' }
-      ]
-    },
-    {
-      id: 'tyres-alignment',
-      code: 'SVC / 03',
-      title: 'Tyres & Alignment',
-      category: 'maintenance',
-      shortDesc: 'Laser wheel alignment and balanced fitment for every tyre brand we stock.',
-      description: 'Using high-resolution Hunter Hawkeye 3D optical sensors, we adjust your steering geometry to eliminate tire wear and tracking pull.',
-      image: 'assets/img/tyre-service.jpg',
-      features: ['Hunter 3D Laser Scanning', 'Front & Rear Toe/Camber Adjust', 'High-Speed Wheel Balancing', 'Tire Pressure & Tread Depth Check'],
-      pricing: [
-        { tier: '2-Wheel Alignment', price: '$99', desc: 'Front axle adjustment' },
-        { tier: '4-Wheel 3D Alignment', price: '$149', desc: 'Full 4-wheel geometry calibration' }
-      ],
-      faqs: [
-        { q: 'When do I need an alignment?', a: 'After installing new tires, replacing suspension parts, or if your vehicle pulls to one side.' }
-      ]
-    },
-    {
-      id: 'computer-diagnostics',
-      code: 'SVC / 04',
-      title: 'Computer Diagnostics',
-      category: 'diagnostics',
-      shortDesc: 'Manufacturer-level scan tools that read exactly what your dealer sees.',
-      description: 'Using dealership-grade diagnostic scanners and oscilloscope testing, we pinpoint check engine lights, sensor failures, and electronic glitches with 100% accuracy before any parts are replaced.',
-      image: 'assets/img/diagnostics-service.jpg',
-      features: ['Full ECU Fault Code Scan', 'Live Data Stream Analysis', 'Ignition & Fuel System Test', 'Printed Technical Report'],
-      pricing: [
-        { tier: 'Basic Diagnostic', price: '$89', desc: 'Scan code read & quick report' },
-        { tier: 'Full Diagnostic', price: '$149', desc: 'In-depth sensor, scope & live data test' }
-      ],
-      faqs: [
-        { q: 'How long does a diagnostic scan take?', a: 'Most diagnostic scans take between 45 minutes to 1.5 hours depending on complexity.' }
-      ]
-    },
-    {
-      id: 'detailing-paint',
-      code: 'SVC / 05',
-      title: 'Detailing & Paint Care',
-      category: 'cosmetic',
-      shortDesc: 'Correction, ceramic coating, and interior recon for showroom finish.',
-      description: 'Professional paint correction, multi-stage polishing, ceramic coating, and deep interior extraction to restore your vehicle to showroom condition.',
-      image: 'assets/img/detailing-service.jpg',
-      features: ['Multi-Stage Paint Correction', '3-Year Ceramic Coating', 'Interior Deep Clean & Leather Care', 'Wheel & Engine Bay Detailing'],
-      pricing: [
-        { tier: 'Full Interior & Exterior Detail', price: '$249', desc: 'Complete deep cleaning' },
-        { tier: 'Ceramic Coating Package', price: '$699', desc: 'Paint correction + 3-year ceramic shield' }
-      ],
-      faqs: [
-        { q: 'How long does ceramic coating last?', a: 'Our professional ceramic coatings provide hydrophobic protection for 3 to 5 years.' }
-      ]
-    },
-    {
-      id: 'battery-electrical',
-      code: 'SVC / 06',
-      title: 'Battery & Electrical',
-      category: 'electrical',
-      shortDesc: 'Load-testing, alternator checks, and EV/hybrid battery diagnostics.',
-      description: 'High-voltage and 12V system testing, alternator output measurement, starter motor diagnosis, and EV/hybrid battery health reports.',
+      title: 'Battery Health Testing',
+      category: 'testing',
+      shortDesc: 'Full load test, CCA check, and alternator output reading on-site in 20 minutes.',
+      description: 'Our certified technicians bring professional battery testing equipment directly to your vehicle. We measure cold-cranking amps, state of health, and alternator charge output. You get a clear written report — no guesswork.',
       image: 'assets/img/battery-service.jpg',
-      features: ['12V & EV Battery Health Test', 'Alternator & Starter Diagnosis', 'Parasitic Draw Detection', 'OEM Battery Replacement'],
+      features: ['CCA Load Test', 'Alternator Output Check', 'State of Health Report', 'On-Site in 20 Minutes', 'No Workshop Visit Required'],
       pricing: [
-        { tier: 'Battery & Charging Test', price: '$49', desc: 'Full system health scan' },
-        { tier: 'OEM Battery Replacement', price: '$189', desc: 'Includes battery, installation & registration' }
+        { tier: 'Battery Test', price: '$29', desc: 'Full health scan & written report' },
+        { tier: 'Test + Alternator Check', price: '$45', desc: 'Full system health audit' }
       ],
       faqs: [
-        { q: 'How long do car batteries last?', a: 'Car batteries typically last 3 to 5 years depending on climate and electrical load.' }
+        { q: 'How long does a battery test take?', a: 'Most battery health tests are completed in 15–20 minutes on-site at your vehicle.' }
+      ]
+    },
+    {
+      id: 'battery-replace',
+      code: 'SVC / 02',
+      title: 'Battery Replacement',
+      category: 'replacement',
+      shortDesc: 'OEM-spec battery fitted and registered on-site. Old battery collected for recycling.',
+      description: 'We carry OEM and premium aftermarket batteries for all makes and models in our stocked vans. Fitting, registration, and system reset are included. Old battery is taken away and responsibly recycled.',
+      image: 'assets/img/diagnostics-service.jpg',
+      features: ['OEM-Spec Battery Supplied', 'On-Site Fitting & Registration', 'ECU Reset Included', 'Old Battery Disposal', '24-Month Parts & Labour Warranty'],
+      pricing: [
+        { tier: 'Standard Replacement', price: 'From $149', desc: 'Battery + fitting + disposal' },
+        { tier: 'EFB / AGM Replacement', price: 'From $219', desc: 'Start-stop & premium batteries' }
+      ],
+      faqs: [
+        { q: 'Do you carry batteries for my car?', a: 'Our vans stock batteries for over 95% of vehicles. We confirm availability before dispatch.' }
+      ]
+    },
+    {
+      id: 'jump-start',
+      code: 'SVC / 03',
+      title: 'Roadside Jump-Start',
+      category: 'jumpstart',
+      shortDesc: 'Fast dispatch, safe lithium booster jump-start for petrol, diesel, and mild-hybrid vehicles.',
+      description: 'Stranded with a flat battery? We dispatch a technician to your exact location. Using professional lithium jump-start boosters, we safely start your vehicle — then run a full battery test to advise whether a replacement is needed.',
+      image: 'assets/img/oil-service.jpg',
+      features: ['45-Minute Dispatch', 'Safe Lithium Booster', 'Petrol, Diesel & Mild-Hybrid', 'Free Battery Test Included', 'No Towing Needed'],
+      pricing: [
+        { tier: 'Jump-Start', price: '$49', desc: 'Dispatch + booster start + battery test' }
+      ],
+      faqs: [
+        { q: 'Does jump-starting damage modern cars?', a: 'Our lithium professional boosters are safe for all modern vehicles including those with sensitive electronics.' }
+      ]
+    },
+    {
+      id: 'ev-battery',
+      code: 'SVC / 04',
+      title: 'EV & Hybrid Battery Check',
+      category: 'extra',
+      shortDesc: 'Hybrid 12V auxiliary and HV pre-check diagnostics for EV and plug-in hybrid vehicles.',
+      description: 'Electric and hybrid vehicles have both a high-voltage traction battery and a conventional 12V auxiliary battery. We test both systems and provide a health report so you can stay reliably on the road between dealer visits.',
+      image: 'assets/img/brake-service.jpg',
+      features: ['12V Auxiliary Battery Test', 'HV System Pre-Check', 'State of Charge Report', 'Hybrid & EV Compatible', 'Written Health Certificate'],
+      pricing: [
+        { tier: 'EV/Hybrid Battery Check', price: '$59', desc: 'Full 12V + HV pre-check report' }
+      ],
+      faqs: [
+        { q: 'Can you replace EV 12V auxiliary batteries?', a: 'Yes — we stock 12V auxiliary batteries for all major EV and hybrid models and fit them on-site.' }
+      ]
+    },
+    {
+      id: 'fleet-plan',
+      code: 'SVC / 05',
+      title: 'Fleet Battery Plans',
+      category: 'extra',
+      shortDesc: 'Proactive scheduled battery inspections across your entire commercial fleet.',
+      description: 'Prevent unexpected downtime with scheduled proactive battery health checks across your full fleet. We come overnight or on weekends to minimise disruption. Annual health reports and priority replacement slots included.',
+      image: 'assets/img/vehicle-fleet.jpg',
+      features: ['Scheduled Fleet Visits', 'Priority Replacement Slots', 'Annual Health Reports', 'Overnight & Weekend Available', 'Dedicated Account Manager'],
+      pricing: [
+        { tier: 'Fleet Health Check', price: 'Custom', desc: 'Per-vehicle pricing for 5+ vehicles' }
+      ],
+      faqs: [
+        { q: 'What is the minimum fleet size?', a: 'We offer fleet plans for businesses with 5 or more vehicles. Contact us for a custom quote.' }
+      ]
+    },
+    {
+      id: 'drain-diagnosis',
+      code: 'SVC / 06',
+      title: 'Parasitic Drain Diagnosis',
+      category: 'extra',
+      shortDesc: 'Recurring flat battery? We trace the hidden electrical drain and provide a clear written report.',
+      description: 'If your car battery keeps going flat despite being relatively new, there is likely an unwanted current draw from a faulty component. We use professional current clamp meters to identify the source and provide a clear diagnosis report before any repair work is authorised.',
+      image: 'assets/img/tyre-service.jpg',
+      features: ['Current Clamp Drain Test', 'Circuit-by-Circuit Analysis', 'Written Diagnosis Report', 'No Parts Swapped Without Approval', 'On-Site at Your Location'],
+      pricing: [
+        { tier: 'Drain Diagnosis', price: '$79', desc: 'Full parasitic draw test & written report' }
+      ],
+      faqs: [
+        { q: 'How long does a parasitic drain diagnosis take?', a: 'Most drain tests take 45 minutes to 1.5 hours depending on the number of circuits involved.' }
       ]
     }
   ];
 
-  window.MotorWorks.pricingPlans = {
+  window.CarHive.pricingPlans = {
     monthly: [
       {
-        name: 'Basic Care',
-        price: '$29',
+        name: 'Starter',
+        price: '$9',
         period: '/mo',
         save: null,
-        description: 'Essential peace-of-mind maintenance for daily drivers.',
-        features: ['1 Free Synthetic Oil Change / Year', 'Free Computer Fault Scan Anytime', '10% Off Labor Rates', 'Priority Scheduling'],
+        description: 'Peace of mind for casual drivers who want expert battery care on demand.',
+        features: ['1 Free Battery Test / Year', '10% Off All Services', 'Priority Booking Access', 'SMS Service Reminders'],
         featured: false
       },
       {
-        name: 'Pro Maintenance',
-        price: '$59',
+        name: 'Driver+',
+        price: '$24',
         period: '/mo',
-        save: 'Save $120/yr',
-        description: 'Our most popular plan for commuters & multi-car households.',
-        features: ['2 Free Synthetic Oil Changes / Year', '1 Free 3D Wheel Alignment', '15% Off All Labor & Parts', 'Free Annual Brake Inspection', 'Loaner Vehicle Included'],
+        save: 'Save $60/yr',
+        description: 'Our most popular plan for everyday drivers and commuters.',
+        features: ['2 Free Battery Tests / Year', '1 Free Jump-Start / Year', '15% Off Replacements', 'Priority Same-Day Dispatch', 'Dedicated Support Line'],
         featured: true
       },
       {
-        name: 'Fleet & Executive',
-        price: '$99',
+        name: 'Fleet Pro',
+        price: '$69',
         period: '/mo',
         save: null,
-        description: 'Comprehensive coverage for high-performance and luxury vehicles.',
-        features: ['Unlimited Oil Changes', '2 Free Wheel Alignments / Year', '20% Off All Repairs', 'Flatbed Towing Support (25 miles)', 'Dedicated Master Tech Advisor'],
+        description: 'Comprehensive coverage for small businesses and multi-vehicle households.',
+        features: ['Unlimited Battery Tests', '3 Free Jump-Starts / Year', '20% Off All Replacements', 'Overnight Fleet Visits', 'Annual Fleet Health Reports', 'Dedicated Account Manager'],
         featured: false
       }
     ],
     annual: [
       {
-        name: 'Basic Care',
-        price: '$290',
+        name: 'Starter',
+        price: '$89',
         period: '/yr',
-        save: '2 Months Free',
-        description: 'Essential peace-of-mind maintenance for daily drivers.',
-        features: ['1 Free Synthetic Oil Change / Year', 'Free Computer Fault Scan Anytime', '10% Off Labor Rates', 'Priority Scheduling'],
+        save: '1 Month Free',
+        description: 'Peace of mind for casual drivers who want expert battery care on demand.',
+        features: ['1 Free Battery Test / Year', '10% Off All Services', 'Priority Booking Access', 'SMS Service Reminders'],
         featured: false
       },
       {
-        name: 'Pro Maintenance',
-        price: '$590',
+        name: 'Driver+',
+        price: '$239',
         period: '/yr',
-        save: 'Save $240/yr',
-        description: 'Our most popular plan for commuters & multi-car households.',
-        features: ['2 Free Synthetic Oil Changes / Year', '1 Free 3D Wheel Alignment', '15% Off All Labor & Parts', 'Free Annual Brake Inspection', 'Loaner Vehicle Included'],
+        save: 'Save $120/yr',
+        description: 'Our most popular plan for everyday drivers and commuters.',
+        features: ['2 Free Battery Tests / Year', '1 Free Jump-Start / Year', '15% Off Replacements', 'Priority Same-Day Dispatch', 'Dedicated Support Line'],
         featured: true
       },
       {
-        name: 'Fleet & Executive',
-        price: '$990',
+        name: 'Fleet Pro',
+        price: '$689',
         period: '/yr',
         save: 'Save $390/yr',
-        description: 'Comprehensive coverage for high-performance and luxury vehicles.',
-        features: ['Unlimited Oil Changes', '2 Free Wheel Alignments / Year', '20% Off All Repairs', 'Flatbed Towing Support (25 miles)', 'Dedicated Master Tech Advisor'],
+        description: 'Comprehensive coverage for small businesses and multi-vehicle households.',
+        features: ['Unlimited Battery Tests', '3 Free Jump-Starts / Year', '20% Off All Replacements', 'Overnight Fleet Visits', 'Annual Fleet Health Reports', 'Dedicated Account Manager'],
         featured: false
       }
     ]
   };
 
-  window.MotorWorks.blogPosts = [
+  window.CarHive.blogPosts = [
     {
-      id: '5-signs-brakes-need-replacement',
-      title: '5 Warning Signs Your Brakes Need Immediate Attention',
-      category: 'Maintenance',
-      date: 'May 14, 2026',
-      readTime: '5 min read',
-      excerpt: 'Squeal, vibration, or a soft pedal? Here is what your vehicle is telling you before a minor pad change becomes a costly rotor replacement.',
-      image: 'assets/img/suspension.jpg',
-      content: '<p>Brakes are your vehicle\'s most critical safety system. Ignoring early warning signs not only increases stopping distances dramatically but can result in severe damage to calipers, rotors, and ABS wheel speed sensors.</p>' +
-        '<h3>1. Squealing or Grinding Noises</h3>' +
-        '<p>Modern brake pads include built-in acoustic wear indicators—a small metal tab that emits a high-pitched squeal when friction material drops below 3mm. If you hear harsh metal-on-metal grinding, the pad material is completely depleted and the steel backing plate is scoring your brake rotors.</p>' +
-        '<h3>2. Soft or Spongy Brake Pedal</h3>' +
-        '<p>If your brake pedal feels squishy or sinks to the floorboard before engaging, there may be air or moisture trapped inside your hydraulic brake lines, or your master cylinder seals are failing.</p>' +
-        '<h3>3. Steering Wheel Vibration Under Braking</h3>' +
-        '<p>Feeling a pulse or shudder through your steering wheel when applying brakes at highway speeds usually indicates warped brake rotors caused by excessive thermal cycling or uneven wheel lug nut torque.</p>' +
-        '<h3>4. Vehicle Pulling to One Side</h3>' +
-        '<p>If your vehicle veers to the left or right when slowing down, a brake caliper piston may be seized, a slider pin may be binding, or fluid flow is restricted in one side of the hydraulic circuit.</p>' +
-        '<h3>5. Burning Chemical Odor Near Wheels</h3>' +
-        '<p>A sharp chemical smell after heavy braking indicates overheated friction material. Pull over immediately and allow the brake system to cool to prevent fluid vapor lock or severe brake fade.</p>' +
+      id: 'signs-battery-needs-replacing',
+      title: '6 Signs Your Car Battery Is About To Fail',
+      category: 'Battery Care',
+      date: 'June 18, 2026',
+      readTime: '4 min read',
+      excerpt: 'Slow cranking, dim lights, a swollen case — a flat battery rarely arrives without warning. Here is what to watch for.',
+      image: 'assets/img/battery.jpg',
+      content: '<p>Most drivers only notice a battery when the car will not start. The truth is that a failing battery usually gives weeks of warning first. Catching it early turns a stressful 7am breakdown into a ten-minute doorstep replacement.</p>' +
+        '<h3>1. Slow, Laboured Cranking</h3>' +
+        '<p>The starter motor turns the engine over sluggishly and takes noticeably longer than usual. This is usually the first sign that internal resistance has risen inside the battery cells.</p>' +
+        '<h3>2. Lights That Dim When You Turn the Key</h3>' +
+        '<p>If headlights, dashboard lighting, or the radio noticeably fade while the engine is cranking, the battery cannot hold voltage under load. That is a clear warning to test it.</p>' +
+        '<h3>3. A Swollen, Bulging, or Smelly Case</h3>' +
+        '<p>Heat and age cause the electrolyte inside to gas out. A case that looks puffed or cracked has lost internal volume and should be replaced immediately — it can fail without warning.</p>' +
+        '<h3>4. Corroded or Loose Terminals</h3>' +
+        '<p>White, green, or blue-green powder around the battery posts means moisture has been getting in. Corrosion raises resistance at the connection and is often mistaken for a bad battery when the real fix is cleaning.</p>' +
+        '<h3>5. Short Trips Only</h3>' +
+        '<p>If your battery is rarely allowed a full charge cycle — lots of short commutes, frequent engine restarts — lead-acid chemistry degrades faster. A weekly 30-minute drive is often enough to keep it healthy.</p>' +
+        '<h3>6. A Battery Older Than Four Years</h3>' +
+        '<p>Typical lifespan is three to five years. Once your battery passes four, treat a load test as annual maintenance rather than something to wait for.</p>' +
         '<div style="background:var(--panel-2);border-left:4px solid var(--amber);padding:20px;margin:30px 0;">' +
-        '<strong style="color:var(--amber);display:block;margin-bottom:6px;">PRO TIP FROM OUR MASTER TECHS:</strong>' +
-        '<p style="margin:0;font-size:14px;color:var(--steel);">Have your brake pad thickness and DOT4 fluid boiling point checked during every oil change. Catching pad wear early saves hundreds of dollars on rotor replacements.</p>' +
+        '<strong style="color:var(--amber);display:block;margin-bottom:6px;">CAR HIVE ADVICE:</strong>' +
+        '<p style="margin:0;font-size:14px;color:var(--steel);">A $29 doorstep load test tells you the truth in 20 minutes, with a written report. If it fails, we can fit a replacement at the same visit.</p>' +
         '</div>'
     },
     {
-      id: 'understanding-synthetic-oil',
-      title: 'Conventional vs. Synthetic Oil: What Does Your Engine Really Need?',
-      category: 'Education',
-      date: 'April 28, 2026',
-      readTime: '6 min read',
-      excerpt: 'A detailed look into viscosity indexes, thermal breakdown protection, and why modern turbocharged engines demand full synthetic formulas.',
-      image: 'assets/img/oil.jpg',
-      content: '<p>Engine oil is the lifeblood of your powertrain. Choosing the correct formulation directly impacts fuel efficiency, thermal stability, turbocharger lifespan, and internal engine cleanliness.</p>' +
-        '<h3>Molecular Uniformity & Thermal Resistance</h3>' +
-        '<p>Unlike conventional mineral oils refined directly from crude stock, full synthetic oils are chemically engineered. Their uniform molecular size reduces internal fluid friction and resists thermal breakdown at temperatures exceeding 400°F.</p>' +
-        '<h3>Protection for Turbocharged & Direct-Injection Engines</h3>' +
-        '<p>Modern engines feature high compression ratios, tight valve tolerances, and turbochargers spinning at over 150,000 RPM. Synthetic formulas prevent carbon deposit formation on intake valves and eliminate turbo bearing coking.</p>' +
-        '<h3>Cold-Weather Flow & Immediate Lubrication</h3>' +
-        '<p>Over 75% of engine wear occurs during initial cold starts. Full synthetic oils flow rapidly at low ambient temperatures, ensuring instantaneous oil pressure to critical camshaft and crankshaft bearings.</p>' +
+      id: 'winter-battery-care',
+      title: 'Why Batteries Die In Winter (And How To Beat It)',
+      category: 'Seasonal',
+      date: 'November 24, 2025',
+      readTime: '5 min read',
+      excerpt: 'Cold does not kill batteries — it exposes them. Capacity drops about 60% at freezing, so marginal batteries finally reveal themselves.',
+      image: 'assets/img/battery-service.jpg',
+      content: '<p>Cold weather does not drain a healthy battery. It removes the margin a tired battery has been living on. At 0&deg;C a lead-acid battery delivers roughly 40% less cranking power than at 25&deg;C, which is why a marginal battery that started fine all autumn suddenly refuses on the first freezing morning.</p>' +
+        '<h3>The Chemistry Behind Cold Failures</h3>' +
+        '<p>Chemical reactions inside a lead-acid cell slow down in the cold. Discharge reactions slow further, so available capacity falls. The engine, meanwhile, needs more energy to start because oil thickens and air density drops.</p>' +
+        '<h3>Cold-Soaked Electronics Are a Separate Problem</h3>' +
+        '<p>Below freezing, moisture condenses on connectors and can freeze in harnesses and infotainment modules, drawing current overnight. This is one of the most common causes of a battery that is flat every morning but tests fine during the day.</p>' +
+        '<h3>Four Things That Actually Help</h3>' +
+        '<p>Keep the battery clean and dry, tighten the terminal clamp, park indoors where possible, and drive long enough after starting to bring the alternator to full charge. A smart charger or a monthly maintainer is the single most effective winter upgrade.</p>' +
+        '<h3>Prepare Before The First Cold Snap</h3>' +
+        '<p>Get the load test done in autumn rather than waiting for a breakdown. If your battery is already three years old, replacing it before winter is far cheaper than a roadside jump-start you do not need.</p>' +
         '<div style="background:var(--panel-2);border-left:4px solid var(--amber);padding:20px;margin:30px 0;">' +
-        '<strong style="color:var(--amber);display:block;margin-bottom:6px;">RECOMMENDED INTERVAL:</strong>' +
-        '<p style="margin:0;font-size:14px;color:var(--steel);">We recommend full synthetic oil changes every 5,000 to 7,500 miles or 12 months, whichever comes first, regardless of manufacturer extended interval claims.</p>' +
+        '<strong style="color:var(--amber);display:block;margin-bottom:6px;">WINTER PREP PACKAGE:</strong>' +
+        '<p style="margin:0;font-size:14px;color:var(--steel);">Book a test plus a terminal clean before winter. If the battery fails the test on the spot, we fit a replacement in the same visit with no extra callout fee.</p>' +
         '</div>'
     },
     {
-      id: 'preparing-car-for-summer',
-      title: 'Essential Summer Road Trip Car Checklist',
-      category: 'Tips',
-      date: 'June 02, 2026',
-      readTime: '5 min read',
-      excerpt: 'Don\'t let a cooling system breakdown ruin your vacation. Follow these pre-trip checks for trouble-free highway cruising.',
-      image: 'assets/img/tyre.jpg',
-      content: '<p>Summer ambient heat puts immense thermal stress on your engine cooling system, air conditioning compressor, battery chemistry, and tire pressures. A 20-minute inspection before taking a highway trip prevents roadside breakdowns.</p>' +
-        '<h3>1. Radiator & Coolant Health Check</h3>' +
-        '<p>Ensure coolant level is filled to max and test coolant pH/boiling point. Inspect upper and lower radiator hoses for bulging, soft spots, or hairline cracks near hose clamps.</p>' +
-        '<h3>2. Tire Pressure & Heat Expansion</h3>' +
-        '<p>Check tire pressure when tires are cold. Summer road temperatures cause air to expand rapidly. Inspect tread depth across inner and outer edges for uneven alignment wear.</p>' +
-        '<h3>3. Air Conditioning & Cabin Filter Replacement</h3>' +
-        '<p>A weak A/C system often stems from a clogged cabin air filter or low refrigerant pressure. Replace the cabin filter annually to maintain fresh airflow and compressor efficiency.</p>' +
-        '<h3>4. Battery Heat Stress Test</h3>' +
-        '<p>Heat degrades car batteries faster than extreme cold by evaporating internal electrolyte fluid. Have your battery load-tested to verify cold-cranking amp output.</p>' +
+      id: 'jump-start-or-replace',
+      title: 'Jump-Start Or Replace? How To Tell Instantly',
+      category: 'How-To',
+      date: 'March 09, 2026',
+      readTime: '4 min read',
+      excerpt: 'A jump-start gets you moving today. Sometimes that is the whole answer — and sometimes it is a $40 mistake waiting to happen.',
+      image: 'assets/img/car-banner.jpg',
+      content: '<p>Every jump-start we attend includes a free battery condition check, because the two outcomes are very different. One leaves you driving a healthy car. The other leaves you standing in the same car park next week.</p>' +
+        '<h3>When a Jump-Start Is the Right Answer</h3>' +
+        '<p>Your battery is three years old or younger, the car has been parked for a long time, or you rarely drive it. Lights were on overnight. In these cases the battery just needs a charge, and a booster start restores it to full.</p>' +
+        '<h3>When You Need a Replacement</h3>' +
+        '<p>The car struggled to start before going flat, the battery is warm to the touch, the case is swollen, or it has been jump-started already. A load test below 70% capacity means the battery will keep failing regardless of how many boosters you use.</p>' +
+        '<h3>What We Do After Every Boost</h3>' +
+        '<p>We measure cranking amps and state of health, then check the alternator output. A battery that passes but leaves the car flat on a short drive is not a battery problem at all — it is usually an alternator fault or a parasitic drain.</p>' +
+        '<h3>Do It Yourself Safely</h3>' +
+        '<p>Connect the positive clamp first, then the negative clamp to an unpainted ground point away from the battery. Never connect the second clamp to the negative terminal — modern vehicles can be damaged by the load spike.</p>' +
         '<div style="background:var(--panel-2);border-left:4px solid var(--amber);padding:20px;margin:30px 0;">' +
-        '<strong style="color:var(--amber);display:block;margin-bottom:6px;">BEFORE YOU DRIVE:</strong>' +
-        '<p style="margin:0;font-size:14px;color:var(--steel);">Stop by MOTORWORKS for a complimentary 30-point summer safety check prior to your long-distance road trips.</p>' +
+        '<strong style="color:var(--amber);display:block;margin-bottom:6px;">STRANDED RIGHT NOW?</strong>' +
+        '<p style="margin:0;font-size:14px;color:var(--steel);">Call +1 (312) 555-0148 for a 45-minute dispatch, or book a $49 jump-start online. The battery test is included either way.</p>' +
         '</div>'
-    }
-  ];
+    }  ];
 })();

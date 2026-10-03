@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Dashboard — MOTORWORKS</title>
+<title>My Requests - CAR HIVE</title>
 <link rel="icon" href="../../assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../src/css/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../src/css/styles.css">
 </head>
 <body>
 <div class="dashboard-layout">
   <aside class="dashboard-sidebar">
-    <a href="../../index.html" class="logo" style="margin-bottom:30px;padding:0 24px;"><span class="dot"></span>MW</a>
+    <a href="../../index.html" class="logo" style="margin-bottom:30px;padding:0 24px;"><span class="dot"></span>CAR HIVE</a>
     <div class="sidebar-section-label">NAVIGATION</div>
     <nav class="sidebar-nav">
       <a href="#" class="active">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        Dashboard
+        Overview
       </a>
       <a href="#">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -25,11 +26,11 @@
       </a>
       <a href="#">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        My Appointments
+        My Requests
       </a>
       <a href="#">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        Service History
+        Battery History
       </a>
       <a href="#">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
@@ -52,8 +53,8 @@
   <main class="dashboard-main">
     <div class="dashboard-header">
       <div>
-        <h1>My Dashboard</h1>
-        <p style="color:var(--steel);font-size:14px;">Manage your vehicles and services.</p>
+        <h1>My Requests</h1>
+        <p style="color:var(--steel);font-size:14px;">Track your battery service requests, vehicles, and warranty records.</p>
       </div>
       <div class="profile-dropdown">
         <button class="profile-icon" id="profileToggle">
@@ -72,14 +73,14 @@
         <div class="stat-change">All up to date</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">UPCOMING SERVICES</div>
+        <div class="stat-label">OPEN REQUESTS</div>
         <div class="stat-value">2</div>
         <div class="stat-change">Next: Jul 28</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">TOTAL SERVICES</div>
-        <div class="stat-value">12</div>
-        <div class="stat-change">Since 2023</div>
+        <div class="stat-label">BATTERIES FITTED</div>
+        <div class="stat-value">3</div>
+        <div class="stat-change">All under warranty</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">MEMBER SINCE</div>
@@ -92,21 +93,21 @@
       <div class="dashboard-widget">
         <h3>My Vehicles</h3>
         <table class="dashboard-table">
-          <thead><tr><th>Vehicle</th><th>Last Service</th><th>Next Due</th></tr></thead>
+          <thead><tr><th>Vehicle</th><th>Last Battery Work</th><th>Warranty / Next Test</th></tr></thead>
           <tbody>
-            <tr><td>BMW 5 Series</td><td>Oil Change Jul 2026</td><td>Brake Inspection Sep 2026</td></tr>
-            <tr><td>Honda Civic</td><td>Tire Rotation Jun 2026</td><td>Oil Change Sep 2026</td></tr>
-            <tr><td>Ford F-150</td><td>Full Service May 2026</td><td>Inspection Nov 2026</td></tr>
+            <tr><td>BMW 5 Series</td><td>Battery Fitted Jul 2026</td><td>Battery Test Jul 2028</td></tr>
+            <tr><td>Honda Civic</td><td>Battery Test Jun 2026</td><td>Replace Battery Spring 2027</td></tr>
+            <tr><td>Ford F-150</td><td>Jump-Start May 2026</td><td>Battery Test May 2027</td></tr>
           </tbody>
         </table>
       </div>
       <div class="dashboard-widget">
-        <h3>Upcoming Appointments</h3>
+        <h3>Active Requests &amp; Technician ETAs</h3>
         <table class="dashboard-table">
-          <thead><tr><th>Date</th><th>Service</th><th>Vehicle</th><th>Status</th></tr></thead>
+          <thead><tr><th>Slot</th><th>Request</th><th>Vehicle</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td>Jul 28, 2026</td><td>Brake Inspection</td><td>BMW 5 Series</td><td><span class="status-badge pending">Pending</span></td></tr>
-            <tr><td>Aug 15, 2026</td><td>Oil Change</td><td>Honda Civic</td><td><span class="status-badge completed">Confirmed</span></td></tr>
+            <tr><td>Jul 28, 11:30 AM</td><td>Battery Testing</td><td>BMW 5 Series</td><td><span class="status-badge pending">Pending</span></td></tr>
+            <tr><td>Jul 25, 09:00 AM</td><td>Battery Replacement</td><td>Honda Civic</td><td><span class="status-badge active">On The Way</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -115,23 +116,23 @@
     <div class="dashboard-grid-2" style="margin-top:24px;">
       <div class="dashboard-widget">
         <h3>Recent Activity</h3>
-        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Service completed: Oil Change for BMW 5 Series</div><div class="activity-time">3 days ago</div></div></div>
-        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Appointment scheduled: Brake Inspection</div><div class="activity-time">5 days ago</div></div></div>
-        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Invoice paid: $139 for Oil Change</div><div class="activity-time">3 days ago</div></div></div>
+        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Battery replaced: AGM fitted for BMW 5 Series</div><div class="activity-time">3 days ago</div></div></div>
+        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Request scheduled: Battery Testing for Honda Civic</div><div class="activity-time">5 days ago</div></div></div>
+        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Invoice paid: $239 for battery replacement</div><div class="activity-time">3 days ago</div></div></div>
         <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Vehicle added: Ford F-150</div><div class="activity-time">2 weeks ago</div></div></div>
       </div>
       <div class="dashboard-widget">
-        <h3>Service Progress</h3>
+        <h3>Battery Health Progress</h3>
         <div style="margin-top:16px;">
-          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Oil Change — BMW 5 Series</span><span style="color:var(--steel);">Next in 2,100 mi</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>BMW 5 Series — new AGM</span><span style="color:var(--steel);">100% health</span></div>
           <div class="progress-bar"><div class="progress-bar-fill" style="width:75%"></div></div>
         </div>
         <div style="margin-top:20px;">
-          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Brake Inspection — BMW 5 Series</span><span style="color:var(--steel);">Next in 4,500 mi</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Honda Civic — tested Jun 2026</span><span style="color:var(--steel);">68% health</span></div>
           <div class="progress-bar"><div class="progress-bar-fill" style="width:45%"></div></div>
         </div>
         <div style="margin-top:20px;">
-          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Tire Rotation — Honda Civic</span><span style="color:var(--steel);">Next in 3,000 mi</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Ford F-150 — jumped May 2026</span><span style="color:var(--steel);">41% health</span></div>
           <div class="progress-bar"><div class="progress-bar-fill" style="width:60%"></div></div>
         </div>
       </div>

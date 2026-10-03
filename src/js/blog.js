@@ -9,7 +9,7 @@
     var currentSearch = '';
 
     function getBlogPosts() {
-      return (window.MotorWorks && window.MotorWorks.blogPosts) ? window.MotorWorks.blogPosts : [];
+      return (window.CarHive && window.CarHive.blogPosts) ? window.CarHive.blogPosts : [];
     }
 
     function getBasePath() {
@@ -88,8 +88,8 @@
     renderBlogCards();
   }
 
-  window.MotorWorks = window.MotorWorks || {};
-  window.MotorWorks.initBlog = initBlog;
+  window.CarHive = window.CarHive || {};
+  window.CarHive.initBlog = initBlog;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initBlog);

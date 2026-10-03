@@ -1,7 +1,7 @@
 (function() {
   var html = document.documentElement;
-  var STORAGE_KEY_THEME = 'motorworks-theme';
-  var STORAGE_KEY_RTL = 'motorworks-rtl';
+  var STORAGE_KEY_THEME = 'carhive-theme';
+  var STORAGE_KEY_RTL = 'carhive-rtl';
 
   function initTheme() {
     var saved = localStorage.getItem(STORAGE_KEY_THEME);
@@ -78,13 +78,13 @@
     }
   });
 
-  window.MotorWorks = window.MotorWorks || {};
-  window.MotorWorks.initTheme = initTheme;
-  window.MotorWorks.toggleTheme = toggleTheme;
-  window.MotorWorks.updateThemeIcon = updateThemeIcon;
-  window.MotorWorks.initRTL = initRTL;
-  window.MotorWorks.toggleRTL = toggleRTL;
-  window.MotorWorks.updateRTLIcon = updateRTLIcon;
+  window.CarHive = window.CarHive || {};
+  window.CarHive.initTheme = initTheme;
+  window.CarHive.toggleTheme = toggleTheme;
+  window.CarHive.updateThemeIcon = updateThemeIcon;
+  window.CarHive.initRTL = initRTL;
+  window.CarHive.toggleRTL = toggleRTL;
+  window.CarHive.updateRTLIcon = updateRTLIcon;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() { initTheme(); initRTL(); });

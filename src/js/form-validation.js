@@ -100,8 +100,8 @@
       var messages = {
         contact: 'Message sent successfully! We\'ll get back to you within 24 hours.',
         newsletter: 'Successfully subscribed to our newsletter!',
-        login: 'Login successful! Redirecting to home page...',
-        signup: 'Account created successfully! Redirecting to home page...',
+        login: 'Login successful! Opening your requests...',
+        signup: 'Account created successfully! Opening your requests...',
         booking: 'Service booking confirmed! Check your email for details.'
       };
       showToast(messages[formType] || 'Form submitted successfully!', 'success');
@@ -110,9 +110,11 @@
 
       if (formType === 'login' || formType === 'signup') {
         var path = window.location.pathname;
-        var homeUrl = (path.indexOf('/public/auth/') !== -1 || path.indexOf('/public/pages/') !== -1 || path.indexOf('/auth/') !== -1) ? '../../index.html' : './index.html';
+        var isNested = path.indexOf('/public/auth/') !== -1 || path.indexOf('/public/pages/') !== -1 || path.indexOf('/auth/') !== -1;
+        var dashboardUrl = isNested ? '../../auth/user/user-dashboard.html' : './auth/user/user-dashboard.html';
+        var homeUrl = isNested ? '../../index.html' : './index.html';
         setTimeout(function() {
-          window.location.href = homeUrl;
+          window.location.href = formType === 'login' ? dashboardUrl : homeUrl;
         }, 1000);
       }
     }
@@ -138,10 +140,10 @@
     });
   }
 
-  window.MotorWorks = window.MotorWorks || {};
-  window.MotorWorks.validateForm = validateForm;
-  window.MotorWorks.showToast = showToast;
-  window.MotorWorks.initForms = initForms;
+  window.CarHive = window.CarHive || {};
+  window.CarHive.validateForm = validateForm;
+  window.CarHive.showToast = showToast;
+  window.CarHive.initForms = initForms;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initForms);

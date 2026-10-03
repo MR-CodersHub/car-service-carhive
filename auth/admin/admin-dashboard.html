@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard — MOTORWORKS</title>
+<title>Admin Dashboard — CAR HIVE</title>
 <link rel="icon" href="../../assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../src/css/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../src/css/styles.css">
 </head>
 <body>
 <div class="dashboard-layout">
   <aside class="dashboard-sidebar">
-    <a href="../../index.html" class="logo" style="margin-bottom:30px;padding:0 24px;"><span class="dot"></span>MW</a>
+    <a href="../../index.html" class="logo" style="margin-bottom:30px;padding:0 24px;"><span class="dot"></span>CAR HIVE</a>
     <div class="sidebar-section-label">NAVIGATION</div>
     <nav class="sidebar-nav">
       <a href="#" class="active">
@@ -25,7 +26,7 @@
       </a>
       <a href="#">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        Appointments
+        Requests
       </a>
       <a href="#">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -72,7 +73,7 @@
         <div class="stat-change">+12% from last month</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">ACTIVE APPOINTMENTS</div>
+        <div class="stat-label">ACTIVE REQUESTS</div>
         <div class="stat-value">47</div>
         <div class="stat-change">+5 today</div>
       </div>
@@ -90,7 +91,7 @@
 
     <div class="dashboard-grid-2">
       <div class="dashboard-widget">
-        <h3>Recent Appointments</h3>
+        <h3>Recent Requests</h3>
         <table class="dashboard-table">
           <thead><tr><th>Customer</th><th>Vehicle</th><th>Service</th><th>Status</th></tr></thead>
           <tbody>
@@ -105,29 +106,29 @@
       <div class="dashboard-widget">
         <h3>Recent Activity</h3>
         <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">New user registered: Amanda S.</div><div class="activity-time">2 hours ago</div></div></div>
-        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Appointment booked: Brake Service for Volvo XC60</div><div class="activity-time">3 hours ago</div></div></div>
-        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Service completed: Full Detail for Ford Mustang</div><div class="activity-time">5 hours ago</div></div></div>
-        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Payment received: $349 from Marcus T.</div><div class="activity-time">5 hours ago</div></div></div>
+        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Request booked: Battery Testing for Volvo XC60</div><div class="activity-time">3 hours ago</div></div></div>
+        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Jump-start completed for Ford Mustang</div><div class="activity-time">5 hours ago</div></div></div>
+        <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Payment received: $49 from Marcus T.</div><div class="activity-time">5 hours ago</div></div></div>
         <div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Invoice generated for Daniel R.</div><div class="activity-time">6 hours ago</div></div></div>
       </div>
     </div>
 
     <div class="dashboard-widget" style="margin-top:24px;">
-      <h3>Service Revenue by Category</h3>
+      <h3>Revenue by Battery Service</h3>
       <div style="margin-top:16px;">
-        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Oil & Filter</span><span style="color:var(--amber);">$24,500</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Battery Replacement</span><span style="color:var(--amber);">$24,500</span></div>
         <div class="progress-bar"><div class="progress-bar-fill" style="width:75%"></div></div>
       </div>
       <div style="margin-top:16px;">
-        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Brake & Suspension</span><span style="color:var(--amber);">$18,200</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Battery Testing</span><span style="color:var(--amber);">$18,200</span></div>
         <div class="progress-bar"><div class="progress-bar-fill" style="width:58%"></div></div>
       </div>
       <div style="margin-top:16px;">
-        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Detailing</span><span style="color:var(--amber);">$15,800</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Roadside Jump-Starts</span><span style="color:var(--amber);">$15,800</span></div>
         <div class="progress-bar"><div class="progress-bar-fill" style="width:48%"></div></div>
       </div>
       <div style="margin-top:16px;">
-        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Diagnostics</span><span style="color:var(--amber);">$12,400</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Drain &amp; EV Diagnostics</span><span style="color:var(--amber);">$12,400</span></div>
         <div class="progress-bar"><div class="progress-bar-fill" style="width:38%"></div></div>
       </div>
     </div>

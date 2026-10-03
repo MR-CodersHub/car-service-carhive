@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Service Bay — MOTORWORKS</title>
+  <title>Book a Doorstep Visit — CAR HIVE</title>
   <link rel="icon" href="../../assets/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../src/css/styles.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
         <span class="sep">/</span>
         <a href="services.html">Services</a>
         <span class="sep">/</span>
-        <span>Book Appointment</span>
+        <span>Book a Visit</span>
       </nav>
     </div>
   </section>
@@ -28,9 +29,9 @@
   <section class="contact-hero" style="padding: 40px 0 60px;">
     <div class="wrap contact-hero-inner">
       <div class="contact-hero-text">
-        <span class="sec-tag">ONLINE APPOINTMENT</span>
-        <h1 style="font-size: clamp(36px, 5vw, 54px);">Schedule Your <em>Service</em></h1>
-        <p>Book your diagnostic scan, routine maintenance, or repair appointment online. Select your preferred date and time slot, and our shop manager will confirm within 2 hours.</p>
+        <span class="sec-tag">DOORSTEP BOOKING</span>
+        <h1 style="font-size: clamp(36px, 5vw, 54px);">Book Your <em>Doorstep Visit</em></h1>
+        <p>Book battery testing, replacement, or a roadside jump-start online. Choose your slot and your exact address, and a certified technician is confirmed within 2 hours.</p>
       </div>
       <div class="contact-hero-cards" style="grid-template-columns: 1fr;">
         <div class="contact-hero-card">
@@ -38,8 +39,8 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div>
-            <h4>Workshop Hours</h4>
-            <p>Mon - Fri: 7:30 AM - 6:00 PM | Sat: 8:00 AM - 3:00 PM</p>
+            <h4>Service Hours</h4>
+            <p>Mon - Fri: 7:00 AM - 9:00 PM | Sat - Sun: 8:00 AM - 6:00 PM | Emergency jump-starts: 24/7</p>
           </div>
         </div>
       </div>
@@ -124,7 +125,7 @@
                 <div class="step-header">
                   <span class="sec-tag">STEP 2 OF 4</span>
                   <h2>Select Required Service</h2>
-                  <p>Choose the primary service or repair package for your appointment.</p>
+                  <p>Choose battery testing, replacement, a jump-start, or one of our additional battery services.</p>
                 </div>
                 <div class="form-group">
                   <label for="bookingService">Service Package <span class="req">*</span></label>
@@ -134,8 +135,8 @@
                   <span class="form-error"></span>
                 </div>
                 <div class="form-group" style="margin-top: 20px;">
-                  <label for="serviceNotes">Describe Symptoms or Specific Issues</label>
-                  <textarea id="serviceNotes" class="form-input" rows="4" placeholder="Mention any check engine codes, unusual sounds, vibration speeds, or special requests..."></textarea>
+                  <label for="serviceNotes">Symptoms, Location Notes, or Special Requests</label>
+                  <textarea id="serviceNotes" class="form-input" rows="4" placeholder="e.g. Slow cranking since Monday, headlights dim at idle, car is parked in an underground car park with level 3 access..."></textarea>
                   <span class="form-error"></span>
                 </div>
                 <div class="step-actions">
@@ -178,8 +179,8 @@
               <div class="booking-step" data-step="4">
                 <div class="step-header">
                   <span class="sec-tag">STEP 4 OF 4</span>
-                  <h2>Customer Information</h2>
-                  <p>Provide your contact info to confirm your appointment.</p>
+                  <h2>Where Should We Meet You?</h2>
+                  <p>We come to your home, office, car park, or roadside — so we need the exact address and a contact number.</p>
                 </div>
                 <div class="form-grid form-grid-2">
                   <div class="form-group">
@@ -198,9 +199,14 @@
                   <input type="email" class="form-input" id="custEmail" placeholder="john@example.com" required>
                   <span class="form-error"></span>
                 </div>
+                <div class="form-group" style="margin-top: 20px;">
+                  <label for="custAddress">Service Address <span class="req">*</span></label>
+                  <textarea class="form-input" rows="3" id="custAddress" placeholder="e.g. 2847 W. Industrial Blvd, Unit 4, Chicago, IL 60622 — gate code 4821" required></textarea>
+                  <span class="form-error"></span>
+                </div>
                 <div class="step-actions">
                   <button type="button" class="btn btn-prev">← Previous Step</button>
-                  <button type="submit" class="btn btn-solid" style="background: var(--amber); color: #141414;">Confirm & Book Appointment ✓</button>
+                  <button type="submit" class="btn btn-solid" style="background: var(--amber); color: #141414;">Confirm Doorstep Visit ✓</button>
                 </div>
               </div>
 
@@ -213,14 +219,14 @@
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <span class="sec-tag">BOOKING CONFIRMED</span>
-            <h2 style="font-size: 36px; margin: 12px 0 16px;">We Have Received Your Appointment!</h2>
+            <h2 style="font-size: 36px; margin: 12px 0 16px;">Your Doorstep Visit Is Booked</h2>
             <p style="color: var(--steel); font-size: 16px; max-width: 540px; margin: 0 auto 30px;">
-              Your service appointment has been scheduled. Our team will review your request and send a confirmation SMS and calendar invite.
+              A Car Hive technician will be confirmed for this slot within 2 hours. You will get an SMS with their name and live ETA, plus a confirmation email with your reference number.
             </p>
             <div style="background: var(--panel-2); border: 1px solid var(--line); padding: 24px; text-align: left; max-width: 480px; margin: 0 auto 36px;">
               <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 12px;">
                 <span style="color: var(--steel); font-size: 13px;">Reference #:</span>
-                <strong id="confRefNum" style="color: var(--amber); font-family: 'IBM Plex Mono', monospace;">-</strong>
+                <strong id="confRefNum" style="color: var(--amber); font-family: 'Montserrat', 'Quicksand', sans-serif;">-</strong>
               </div>
               <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 12px;">
                 <span style="color: var(--steel); font-size: 13px;">Vehicle:</span>
@@ -233,6 +239,10 @@
               <div style="display: flex; justify-content: space-between;">
                 <span style="color: var(--steel); font-size: 13px;">Date & Time:</span>
                 <strong id="confDateTime" style="color: var(--amber);">-</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--line); margin-top: 12px; padding-top: 12px;">
+                <span style="color: var(--steel); font-size: 13px;">Address:</span>
+                <strong id="confAddress" style="color: var(--bone); text-align: right; max-width: 60%;">-</strong>
               </div>
             </div>
             <div class="booking-success-actions" style="display: flex; gap: 16px; justify-content: center;">

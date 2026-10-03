@@ -1,8 +1,8 @@
 (function() {
-  window.MotorWorks = window.MotorWorks || {};
+  window.CarHive = window.CarHive || {};
 
-  var STORAGE_KEY_ADMIN_DATA = 'motorworks-admin-data';
-  var STORAGE_KEY_USER_DATA = 'motorworks-user-data';
+  var STORAGE_KEY_ADMIN_DATA = 'carhive-admin-data';
+  var STORAGE_KEY_USER_DATA = 'carhive-user-data';
 
   // Default mock datasets
   var defaultData = {
@@ -15,28 +15,28 @@
       { id: 6, name: 'Amanda Sterling', email: 'amanda.s@example.com', role: 'Customer', vehicles: 2, joined: 'May 2026', status: 'Active' }
     ],
     appointments: [
-      { id: 'APT-101', customer: 'Daniel Richardson', vehicle: 'Audi A6', service: 'Full Computer Diagnostics', date: '2026-07-25', time: '09:00 AM', status: 'Active', tech: 'Marcus Vance' },
-      { id: 'APT-102', customer: 'Priya Sharma', vehicle: 'Volvo XC60', service: 'Brake & Suspension', date: '2026-07-28', time: '11:30 AM', status: 'Pending', tech: 'James Thorne' },
-      { id: 'APT-103', customer: 'Marcus Vance', vehicle: 'Ford Mustang', service: 'Detailing & Paint Care', date: '2026-07-22', time: '02:00 PM', status: 'Completed', tech: 'Elena Rostova' },
-      { id: 'APT-104', customer: 'Jennifer Kim', vehicle: 'Toyota Highlander', service: 'Oil & Filter Service', date: '2026-07-20', time: '10:00 AM', status: 'Completed', tech: 'David Miller' },
-      { id: 'APT-105', customer: 'Robert Lawson', vehicle: 'BMW 5 Series', service: 'Tyres & Alignment', date: '2026-07-29', time: '01:30 PM', status: 'Active', tech: 'James Thorne' }
+      { id: 'CH-4821', customer: 'Daniel Richardson', vehicle: 'Audi A6', service: 'Battery Replacement', date: '2026-07-25', time: '09:00 AM', status: 'Active', tech: 'Marcus Vance' },
+      { id: 'CH-4822', customer: 'Priya Sharma', vehicle: 'Volvo XC60', service: 'Battery Testing', date: '2026-07-28', time: '11:30 AM', status: 'Pending', tech: 'Elena Rostova' },
+      { id: 'CH-4823', customer: 'Marcus Vance', vehicle: 'Ford Mustang', service: 'Roadside Jump-Start', date: '2026-07-22', time: '02:00 PM', status: 'Completed', tech: 'Marcus Vance' },
+      { id: 'CH-4824', customer: 'Jennifer Kim', vehicle: 'Toyota Highlander', service: 'Battery Replacement', date: '2026-07-20', time: '10:00 AM', status: 'Completed', tech: 'David Miller' },
+      { id: 'CH-4825', customer: 'Robert Lawson', vehicle: 'BMW 5 Series', service: 'Parasitic Drain Diagnosis', date: '2026-07-29', time: '01:30 PM', status: 'Active', tech: 'James Thorne' }
     ],
     invoices: [
-      { id: 'INV-4091', customer: 'Marcus Vance', service: 'Detailing & Paint Care', amount: '$349.00', date: 'Jul 22, 2026', status: 'Paid', method: 'Credit Card' },
-      { id: 'INV-4092', customer: 'Jennifer Kim', service: 'Oil & Filter Service', amount: '$139.00', date: 'Jul 20, 2026', status: 'Paid', method: 'Apple Pay' },
-      { id: 'INV-4093', customer: 'Daniel Richardson', service: 'Full Computer Diagnostics', amount: '$149.00', date: 'Jul 18, 2026', status: 'Paid', method: 'Credit Card' },
-      { id: 'INV-4094', customer: 'Priya Sharma', service: 'Brake & Suspension', amount: '$389.00', date: 'Jul 28, 2026', status: 'Pending', method: 'Pending' },
-      { id: 'INV-4095', customer: 'Robert Lawson', service: 'Tyres & Alignment', amount: '$149.00', date: 'Jul 29, 2026', status: 'Pending', method: 'Pending' }
+      { id: 'INV-4091', customer: 'Marcus Vance', service: 'Roadside Jump-Start', amount: '$49.00', date: 'Jul 22, 2026', status: 'Paid', method: 'Credit Card' },
+      { id: 'INV-4092', customer: 'Jennifer Kim', service: 'Battery Replacement (AGM)', amount: '$239.00', date: 'Jul 20, 2026', status: 'Paid', method: 'Apple Pay' },
+      { id: 'INV-4093', customer: 'Daniel Richardson', service: 'Battery Testing', amount: '$29.00', date: 'Jul 18, 2026', status: 'Paid', method: 'Credit Card' },
+      { id: 'INV-4094', customer: 'Priya Sharma', service: 'Battery Replacement', amount: '$149.00', date: 'Jul 28, 2026', status: 'Pending', method: 'Pending' },
+      { id: 'INV-4095', customer: 'Robert Lawson', service: 'Parasitic Drain Diagnosis', amount: '$79.00', date: 'Jul 29, 2026', status: 'Pending', method: 'Pending' }
     ],
     userVehicles: [
-      { id: 'VEH-01', make: 'BMW', model: '5 Series', year: '2022', vin: 'WBA53BJ08NFP12948', plate: '7XYZ89', mileage: '34,200 mi', lastService: 'Oil & Filter (Jul 2026)', nextService: 'Brake Inspection (Sep 2026)' },
-      { id: 'VEH-02', make: 'Honda', model: 'Civic Hatchback', year: '2021', vin: '1HGCR2F83MA049182', plate: '4ABC12', mileage: '42,100 mi', lastService: 'Tire Alignment (Jun 2026)', nextService: 'Oil Change (Sep 2026)' },
-      { id: 'VEH-03', make: 'Ford', model: 'F-150 Lariat', year: '2023', vin: '1FTFW1ED8PFB93021', plate: '9LMN45', mileage: '18,500 mi', lastService: 'Full Safety Check (May 2026)', nextService: 'Inspection (Nov 2026)' }
+      { id: 'VEH-01', make: 'BMW', model: '5 Series', year: '2022', vin: 'WBA53BJ08NFP12948', plate: '7XYZ89', mileage: '34,200 mi', lastService: 'Battery Fitted — Jul 2026', nextService: 'Battery Test — Jul 2028' },
+      { id: 'VEH-02', make: 'Honda', model: 'Civic Hatchback', year: '2021', vin: '1HGCR2F83MA049182', plate: '4ABC12', mileage: '42,100 mi', lastService: 'Battery Test — Jun 2026', nextService: 'Replace Battery — Spring 2027' },
+      { id: 'VEH-03', make: 'Ford', model: 'F-150 Lariat', year: '2023', vin: '1FTFW1ED8PFB93021', plate: '9LMN45', mileage: '18,500 mi', lastService: 'Jump-Start — May 2026', nextService: 'Battery Test — May 2027' }
     ],
     userHistory: [
-      { date: 'Jul 20, 2026', vehicle: 'BMW 5 Series', service: 'Oil & Filter Service', mileage: '34,150 mi', cost: '$139.00', status: 'Completed', tech: 'David Miller' },
-      { date: 'Jun 14, 2026', vehicle: 'Honda Civic', service: 'Tyres & Alignment', mileage: '41,800 mi', cost: '$149.00', status: 'Completed', tech: 'James Thorne' },
-      { date: 'May 02, 2026', vehicle: 'Ford F-150', service: 'Full Computer Diagnostics', mileage: '17,900 mi', cost: '$149.00', status: 'Completed', tech: 'Elena Rostova' }
+      { date: 'Jul 20, 2026', vehicle: 'BMW 5 Series', service: 'Battery Replacement (AGM)', mileage: '34,150 mi', cost: '$239.00', status: 'Completed', tech: 'David Miller' },
+      { date: 'Jun 14, 2026', vehicle: 'Honda Civic', service: 'Battery Testing', mileage: '41,800 mi', cost: '$29.00', status: 'Completed', tech: 'James Thorne' },
+      { date: 'May 02, 2026', vehicle: 'Ford F-150', service: 'Roadside Jump-Start', mileage: '17,900 mi', cost: '$49.00', status: 'Completed', tech: 'Elena Rostova' }
     ]
   };
 
@@ -74,12 +74,12 @@
         '</div>' +
         '<div class="dashboard-stats">' +
           '<div class="stat-card"><div class="stat-label">TOTAL USERS</div><div class="stat-value">' + data.users.length + '</div><div class="stat-change">+12% from last month</div></div>' +
-          '<div class="stat-card"><div class="stat-label">ACTIVE APPOINTMENTS</div><div class="stat-value">' + data.appointments.filter(function(a){return a.status !== 'Completed';}).length + '</div><div class="stat-change">+5 today</div></div>' +
+          '<div class="stat-card"><div class="stat-label">ACTIVE REQUESTS</div><div class="stat-value">' + data.appointments.filter(function(a){return a.status !== 'Completed';}).length + '</div><div class="stat-change">+5 today</div></div>' +
           '<div class="stat-card"><div class="stat-label">REVENUE (MTD)</div><div class="stat-value">$84,230</div><div class="stat-change">+18% from last month</div></div>' +
           '<div class="stat-card"><div class="stat-label">SATISFACTION</div><div class="stat-value">4.9</div><div class="stat-change">Out of 5.0</div></div>' +
         '</div>' +
         '<div class="dashboard-grid-2">' +
-          '<div class="dashboard-widget"><h3>Recent Appointments</h3><table class="dashboard-table"><thead><tr><th>Customer</th><th>Vehicle</th><th>Service</th><th>Status</th></tr></thead><tbody>' +
+          '<div class="dashboard-widget"><h3>Recent Requests</h3><table class="dashboard-table"><thead><tr><th>Customer</th><th>Vehicle</th><th>Service</th><th>Status</th></tr></thead><tbody>' +
           data.appointments.slice(0, 5).map(function(a) {
             var stClass = a.status === 'Completed' ? 'completed' : (a.status === 'Pending' ? 'pending' : 'active');
             return '<tr><td>' + a.customer + '</td><td>' + a.vehicle + '</td><td>' + a.service + '</td><td><span class="status-badge ' + stClass + '">' + a.status + '</span></td></tr>';
@@ -87,16 +87,16 @@
           '</tbody></table></div>' +
           '<div class="dashboard-widget"><h3>Recent Activity</h3>' +
             '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">New user registered: Amanda Sterling</div><div class="activity-time">2 hours ago</div></div></div>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Appointment booked: Brake Service for Volvo XC60</div><div class="activity-time">3 hours ago</div></div></div>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Service completed: Full Detail for Ford Mustang</div><div class="activity-time">5 hours ago</div></div></div>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Payment received: $349.00 from Marcus Vance</div><div class="activity-time">5 hours ago</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Request booked: Battery Testing for Volvo XC60</div><div class="activity-time">3 hours ago</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Jump-start completed for Ford Mustang</div><div class="activity-time">5 hours ago</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Payment received: $49.00 from Marcus Vance</div><div class="activity-time">5 hours ago</div></div></div>' +
           '</div>' +
         '</div>' +
-        '<div class="dashboard-widget" style="margin-top:24px;"><h3>Service Revenue by Category</h3>' +
-          '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Oil & Filter</span><span style="color:var(--amber);">$24,500</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:75%"></div></div></div>' +
-          '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Brake & Suspension</span><span style="color:var(--amber);">$18,200</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:58%"></div></div></div>' +
-          '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Detailing</span><span style="color:var(--amber);">$15,800</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:48%"></div></div></div>' +
-          '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Diagnostics</span><span style="color:var(--amber);">$12,400</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:38%"></div></div></div>' +
+        '<div class="dashboard-widget" style="margin-top:24px;"><h3>Revenue by Battery Service</h3>' +
+          '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Battery Replacement</span><span style="color:var(--amber);">$24,500</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:75%"></div></div></div>' +
+          '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Battery Testing</span><span style="color:var(--amber);">$18,200</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:58%"></div></div></div>' +
+          '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Roadside Jump-Starts</span><span style="color:var(--amber);">$15,800</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:48%"></div></div></div>' +
+          '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Drain &amp; EV Diagnostics</span><span style="color:var(--amber);">$12,400</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:38%"></div></div></div>' +
         '</div>';
     } else if (section === 'users') {
       container.innerHTML =
@@ -141,7 +141,7 @@
           data.users = data.users.filter(function(u) { return u.id !== uid; });
           saveData(data);
           renderAdminDashboard(container, 'users', data);
-          if (window.MotorWorks.showToast) window.MotorWorks.showToast('User deleted successfully', 'success');
+          if (window.CarHive.showToast) window.CarHive.showToast('User deleted successfully', 'success');
         });
       });
 
@@ -156,17 +156,17 @@
           data.users.unshift({ id: Date.now(), name: name.trim(), email: email.trim(), role: 'Customer', vehicles: 1, joined: 'Just Now', status: 'Active' });
           saveData(data);
           renderAdminDashboard(container, 'users', data);
-          if (window.MotorWorks.showToast) window.MotorWorks.showToast('User account created!', 'success');
+          if (window.CarHive.showToast) window.CarHive.showToast('User account created!', 'success');
         });
       }
     } else if (section === 'appointments') {
       container.innerHTML =
         '<div class="dashboard-header">' +
-          '<div><h1>Appointments Management</h1><p style="color:var(--steel);font-size:14px;">Monitor live bay allocations, update appointment statuses, and assign technicians.</p></div>' +
+          '<div><h1>Requests Management</h1><p style="color:var(--steel);font-size:14px;">Monitor live visits, update appointment statuses, and assign technicians.</p></div>' +
         '</div>' +
         '<div class="dashboard-stats">' +
           '<div class="stat-card"><div class="stat-label">TOTAL BOOKINGS</div><div class="stat-value">' + data.appointments.length + '</div></div>' +
-          '<div class="stat-card"><div class="stat-label">ACTIVE / IN-BAY</div><div class="stat-value">' + data.appointments.filter(function(a){return a.status==='Active';}).length + '</div></div>' +
+          '<div class="stat-card"><div class="stat-label">ACTIVE / ON SITE</div><div class="stat-value">' + data.appointments.filter(function(a){return a.status==='Active';}).length + '</div></div>' +
           '<div class="stat-card"><div class="stat-label">PENDING</div><div class="stat-value">' + data.appointments.filter(function(a){return a.status==='Pending';}).length + '</div></div>' +
           '<div class="stat-card"><div class="stat-label">COMPLETED</div><div class="stat-value">' + data.appointments.filter(function(a){return a.status==='Completed';}).length + '</div></div>' +
         '</div>' +
@@ -202,7 +202,7 @@
           if (found) {
             found.status = newStatus;
             saveData(data);
-            if (window.MotorWorks.showToast) window.MotorWorks.showToast('Appointment ' + aid + ' status updated to ' + newStatus, 'success');
+            if (window.CarHive.showToast) window.CarHive.showToast('Appointment ' + aid + ' status updated to ' + newStatus, 'success');
           }
         });
       });
@@ -237,44 +237,44 @@
       document.querySelectorAll('.btn-download-inv').forEach(function(btn) {
         btn.addEventListener('click', function() {
           var id = btn.getAttribute('data-id');
-          if (window.MotorWorks.showToast) window.MotorWorks.showToast('Downloading invoice ' + id + '.pdf...', 'success');
+          if (window.CarHive.showToast) window.CarHive.showToast('Downloading invoice ' + id + '.pdf...', 'success');
         });
       });
     } else if (section === 'analytics') {
       container.innerHTML =
         '<div class="dashboard-header">' +
-          '<div><h1>Performance Analytics</h1><p style="color:var(--steel);font-size:14px;">Real-time workshop efficiency, bay turnaround rates, and customer growth.</p></div>' +
+          '<div><h1>Performance Analytics</h1><p style="color:var(--steel);font-size:14px;">Real-time doorstep efficiency, average response times, and customer growth.</p></div>' +
         '</div>' +
         '<div class="dashboard-stats">' +
-          '<div class="stat-card"><div class="stat-label">AVG BAY TURNAROUND</div><div class="stat-value">2.4 Hrs</div><div class="stat-change">-15 mins vs goal</div></div>' +
+          '<div class="stat-card"><div class="stat-label">AVG RESPONSE TIME</div><div class="stat-value">58 Min</div><div class="stat-change">-2 mins vs target</div></div>' +
           '<div class="stat-card"><div class="stat-label">CUSTOMER RETENTION</div><div class="stat-value">94.2%</div><div class="stat-change">+3.1% YoY</div></div>' +
-          '<div class="stat-card"><div class="stat-label">PARTS EFFICIENCY</div><div class="stat-value">98.5%</div><div class="stat-change">Zero OEM delays</div></div>' +
-          '<div class="stat-card"><div class="stat-label">ROTOR / PAD REPAIR %</div><div class="stat-value">38%</div><div class="stat-change">Of total volume</div></div>' +
+          '<div class="stat-card"><div class="stat-label">FIRST-VISIT FIX RATE</div><div class="stat-value">97.8%</div><div class="stat-change">Right battery carried</div></div>' +
+          '<div class="stat-card"><div class="stat-label">REPLACEMENTS / JOBS</div><div class="stat-value">64%</div><div class="stat-change">Of total volume</div></div>' +
         '</div>' +
         '<div class="dashboard-grid-2">' +
           '<div class="dashboard-widget"><h3>Monthly Revenue Distribution</h3>' +
-            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Oil & Lubrication Services</span><span style="color:var(--amber);">$34,100 (40%)</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:40%"></div></div></div>' +
-            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Brake & Suspension Overhauls</span><span style="color:var(--amber);">$23,900 (28%)</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:28%"></div></div></div>' +
-            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Detailing & Ceramic Coating</span><span style="color:var(--amber);">$15,400 (18%)</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:18%"></div></div></div>' +
-            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Computer & ECU Diagnostics</span><span style="color:var(--amber);">$10,830 (14%)</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:14%"></div></div></div>' +
+            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Battery Replacements</span><span style="color:var(--amber);">$34,100 (40%)</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:40%"></div></div></div>' +
+            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Battery Testing</span><span style="color:var(--amber);">$23,900 (28%)</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:28%"></div></div></div>' +
+            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Roadside Jump-Starts</span><span style="color:var(--amber);">$15,400 (18%)</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:18%"></div></div></div>' +
+            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Drain &amp; EV Diagnostics</span><span style="color:var(--amber);">$10,830 (14%)</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:14%"></div></div></div>' +
           '</div>' +
           '<div class="dashboard-widget"><h3>Technician Performance Metrics</h3>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text"><strong>Marcus Vance</strong> — Master Tech</div><div class="activity-time">42 Jobs Signed Off &bull; 99.1% Quality Index</div></div></div>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text"><strong>James Thorne</strong> — Chassis Specialist</div><div class="activity-time">38 Alignments &amp; Brakes &bull; 98.6% Quality Index</div></div></div>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text"><strong>Elena Rostova</strong> — Electrical Lead</div><div class="activity-time">31 Diagnostics &bull; 100% Accuracy Rating</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text"><strong>Marcus Vance</strong> — Lead Battery Tech</div><div class="activity-time">52 Replacements Signed Off &bull; 99.1% Quality Index</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text"><strong>James Thorne</strong> — Fleet Battery Program</div><div class="activity-time">38 Fleet Visits &bull; 98.6% Quality Index</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text"><strong>Elena Rostova</strong> — EV &amp; Hybrid Specialist</div><div class="activity-time">31 EV Checks &bull; 100% Accuracy Rating</div></div></div>' +
           '</div>' +
         '</div>';
     } else if (section === 'settings') {
       container.innerHTML =
         '<div class="dashboard-header">' +
-          '<div><h1>Workshop System Settings</h1><p style="color:var(--steel);font-size:14px;">Configure workshop operating hours, notification triggers, and shop details.</p></div>' +
+          '<div><h1>System Settings</h1><p style="color:var(--steel);font-size:14px;">Configure dispatch hours, notification triggers, and shop details.</p></div>' +
         '</div>' +
         '<div class="dashboard-widget" style="max-width:680px;">' +
           '<form id="adminSettingsForm">' +
-            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">WORKSHOP DISPLAY NAME</label><input type="text" value="MOTORWORKS Precision Car Service" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
-            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">DISPATCH CONTACT PHONE</label><input type="text" value="+1 (312) 555-0148" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
-            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">AUTOMATED SMS/EMAIL APPOINTMENT REMINDERS</label><select style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"><option value="enabled" selected>Enabled (24 Hours Prior)</option><option value="disabled">Disabled</option></select></div>' +
-            '<div style="margin-bottom:24px;"><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">DEFAULT TAX RATE (%)</label><input type="text" value="8.5%" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
+            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">WORKSHOP DISPLAY NAME</label><input type="text" value="Car Hive Doorstep Battery Service" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
+            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">DISPATCH CONTACT PHONE</label><input type="text" value="+1 (312) 555-0148" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
+            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">AUTOMATED SMS/EMAIL APPOINTMENT REMINDERS</label><select style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"><option value="enabled" selected>Enabled (24 Hours Prior)</option><option value="disabled">Disabled</option></select></div>' +
+            '<div style="margin-bottom:24px;"><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">DEFAULT TAX RATE (%)</label><input type="text" value="8.5%" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
             '<button type="submit" class="btn btn-solid">Save System Settings</button>' +
           '</form>' +
         '</div>';
@@ -283,7 +283,7 @@
       if (settingsForm) {
         settingsForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          if (window.MotorWorks.showToast) window.MotorWorks.showToast('Workshop settings saved successfully!', 'success');
+          if (window.CarHive.showToast) window.CarHive.showToast('Settings saved successfully!', 'success');
         });
       }
     }
@@ -295,43 +295,47 @@
     var basePath = getBasePath();
 
     if (section === 'dashboard') {
+      var openRequests = data.appointments.filter(function(a) { return a.status !== 'Completed'; }).length;
       container.innerHTML =
         '<div class="dashboard-header">' +
-          '<div><h1>My Dashboard</h1><p style="color:var(--steel);font-size:14px;">Welcome back, Daniel. Manage your vehicles and service schedules.</p></div>' +
+          '<div><h1>My Requests</h1><p style="color:var(--steel);font-size:14px;">Welcome back, Daniel. Track live visits, battery warranty dates, and past work.</p></div>' +
           '<div class="profile-dropdown"><button class="profile-icon" id="profileToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button><div class="dropdown-menu" id="profileDropdown"><a href="' + basePath + 'index.html">Back to Site</a></div></div>' +
         '</div>' +
         '<div class="dashboard-stats">' +
-          '<div class="stat-card"><div class="stat-label">MY VEHICLES</div><div class="stat-value">' + data.userVehicles.length + '</div><div class="stat-change">All up to date</div></div>' +
-          '<div class="stat-card"><div class="stat-label">UPCOMING SERVICES</div><div class="stat-value">2</div><div class="stat-change">Next: Jul 28</div></div>' +
-          '<div class="stat-card"><div class="stat-label">TOTAL SERVICES</div><div class="stat-value">12</div><div class="stat-change">Since 2023</div></div>' +
+          '<div class="stat-card"><div class="stat-label">OPEN REQUESTS</div><div class="stat-value">' + openRequests + '</div><div class="stat-change">Technician assigned</div></div>' +
+          '<div class="stat-card"><div class="stat-label">NEXT VISIT</div><div class="stat-value">Jul 28</div><div class="stat-change">Battery Test, 11:30 AM</div></div>' +
+          '<div class="stat-card"><div class="stat-label">BATTERIES FITTED</div><div class="stat-value">3</div><div class="stat-change">All under warranty</div></div>' +
           '<div class="stat-card"><div class="stat-label">MEMBER SINCE</div><div class="stat-value">2023</div><div class="stat-change">3 years</div></div>' +
         '</div>' +
         '<div class="dashboard-grid-2">' +
-          '<div class="dashboard-widget"><h3>My Registered Vehicles</h3><table class="dashboard-table"><thead><tr><th>Vehicle</th><th>Last Service</th><th>Next Due</th></tr></thead><tbody>' +
+          '<div class="dashboard-widget"><h3>My Vehicles &amp; Battery Warranty</h3><table class="dashboard-table"><thead><tr><th>Vehicle</th><th>Last Battery Work</th><th>Warranty / Next Test</th></tr></thead><tbody>' +
           data.userVehicles.map(function(v) {
             return '<tr><td><strong>' + v.make + ' ' + v.model + '</strong> (' + v.year + ')</td><td>' + v.lastService + '</td><td>' + v.nextService + '</td></tr>';
           }).join('') +
           '</tbody></table></div>' +
-          '<div class="dashboard-widget"><h3>Upcoming Appointments</h3><table class="dashboard-table"><thead><tr><th>Date</th><th>Service</th><th>Vehicle</th><th>Status</th></tr></thead><tbody>' +
-            '<tr><td>Jul 28, 2026</td><td>Brake Inspection</td><td>BMW 5 Series</td><td><span class="status-badge pending">Pending</span></td></tr>' +
-            '<tr><td>Aug 15, 2026</td><td>Oil Change</td><td>Honda Civic</td><td><span class="status-badge completed">Confirmed</span></td></tr>' +
+          '<div class="dashboard-widget"><h3>Active Requests &amp; Technician ETAs</h3><table class="dashboard-table"><thead><tr><th>Reference</th><th>Slot</th><th>Request</th><th>Vehicle</th><th>Status</th></tr></thead><tbody>' +
+            data.appointments.filter(function(a) { return a.status !== 'Completed'; }).map(function(a) {
+              var stClass = a.status === 'Pending' ? 'pending' : 'active';
+              return '<tr><td><strong>' + a.id + '</strong><br><span style="font-size:11px;color:var(--steel);">' + a.tech + '</span></td><td>' + a.date + '<br>' + a.time + '</td><td>' + a.service + '</td><td>' + a.vehicle + '</td><td><span class="status-badge ' + stClass + '">' + (a.status === 'Active' ? 'On The Way' : a.status) + '</span></td></tr>';
+            }).join('') +
           '</tbody></table></div>' +
         '</div>' +
         '<div class="dashboard-grid-2" style="margin-top:24px;">' +
           '<div class="dashboard-widget"><h3>Recent Activity</h3>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Service completed: Oil Change for BMW 5 Series</div><div class="activity-time">3 days ago</div></div></div>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Appointment scheduled: Brake Inspection</div><div class="activity-time">5 days ago</div></div></div>' +
-            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Invoice paid: $139.00 for Oil Change</div><div class="activity-time">3 days ago</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Battery replaced: AGM fitted for BMW 5 Series</div><div class="activity-time">3 days ago</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Request scheduled: Battery Test for Honda Civic</div><div class="activity-time">5 days ago</div></div></div>' +
+            '<div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">Invoice paid: $239.00 for battery replacement</div><div class="activity-time">3 days ago</div></div></div>' +
           '</div>' +
-          '<div class="dashboard-widget"><h3>Vehicle Maintenance Progress</h3>' +
-            '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Oil Change — BMW 5 Series</span><span style="color:var(--steel);">Next in 2,100 mi</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:75%"></div></div></div>' +
-            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Brake Inspection — BMW 5 Series</span><span style="color:var(--steel);">Next in 4,500 mi</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:45%"></div></div></div>' +
+          '<div class="dashboard-widget"><h3>Battery Health Progress</h3>' +
+            '<div style="margin-top:16px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>BMW 5 Series — new AGM</span><span style="color:var(--steel);">100% health</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:100%"></div></div></div>' +
+            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Honda Civic — tested Jun 2026</span><span style="color:var(--steel);">68% health</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:68%"></div></div></div>' +
+            '<div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;"><span>Ford F-150 — jumped May 2026</span><span style="color:var(--steel);">41% health</span></div><div class="progress-bar"><div class="progress-bar-fill" style="width:41%"></div></div></div>' +
           '</div>' +
         '</div>';
     } else if (section === 'vehicles') {
       container.innerHTML =
         '<div class="dashboard-header">' +
-          '<div><h1>My Vehicles Garage</h1><p style="color:var(--steel);font-size:14px;">Manage your registered vehicles, track odometer readings, and schedule service.</p></div>' +
+          '<div><h1>My Vehicles</h1><p style="color:var(--steel);font-size:14px;">Keep each vehicle registered so we bring the right battery, test report, and warranty history.</p></div>' +
           '<button class="btn btn-solid" id="btnAddVehicleModal">+ Add New Vehicle</button>' +
         '</div>' +
         '<div class="vehicle-cards-grid">' +
@@ -339,16 +343,16 @@
           return '<div class="dashboard-widget" style="border-top:3px solid var(--amber);">' +
             '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">' +
               '<h3 style="margin:0;">' + v.year + ' ' + v.make + ' ' + v.model + '</h3>' +
-              '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;background:var(--panel-2);padding:4px 8px;color:var(--amber);">' + v.plate + '</span>' +
+              '<span style="font-family:\'Montserrat, Quicksand, sans-serif;font-size:11px;background:var(--panel-2);padding:4px 8px;color:var(--amber);">' + v.plate + '</span>' +
             '</div>' +
             '<div style="font-size:13px;color:var(--steel);line-height:1.7;margin-bottom:20px;">' +
               '<div><strong>VIN:</strong> ' + v.vin + '</div>' +
               '<div><strong>Odometer:</strong> ' + v.mileage + '</div>' +
-              '<div><strong>Last Service:</strong> ' + v.lastService + '</div>' +
-              '<div><strong>Next Due:</strong> <span style="color:var(--amber);">' + v.nextService + '</span></div>' +
+              '<div><strong>Last Battery Work:</strong> ' + v.lastService + '</div>' +
+              '<div><strong>Warranty / Next Test:</strong> <span style="color:var(--amber);">' + v.nextService + '</span></div>' +
             '</div>' +
             '<div style="display:flex;gap:10px;">' +
-              '<a href="' + basePath + 'public/pages/booking.html" class="btn btn-solid" style="padding:6px 14px;font-size:12px;">Book Service</a>' +
+              '<a href="' + basePath + 'public/pages/booking.html" class="btn btn-solid" style="padding:6px 14px;font-size:12px;">Book Battery Work</a>' +
               '<button class="btn btn-delete-vehicle" data-id="' + v.id + '" style="padding:6px 14px;font-size:12px;color:var(--error);border-color:var(--error);">Remove</button>' +
             '</div>' +
           '</div>';
@@ -361,7 +365,7 @@
           data.userVehicles = data.userVehicles.filter(function(v) { return v.id !== vid; });
           saveData(data);
           renderUserDashboard(container, 'vehicles', data);
-          if (window.MotorWorks.showToast) window.MotorWorks.showToast('Vehicle removed from garage', 'success');
+          if (window.CarHive.showToast) window.CarHive.showToast('Vehicle removed from garage', 'success');
         });
       });
 
@@ -382,22 +386,22 @@
             plate: '9PR' + Math.floor(100 + Math.random() * 900),
             mileage: '12,000 mi',
             lastService: 'Initial Registration',
-            nextService: 'First Oil Service (6 Mos)'
+            nextService: 'First Battery Test (6 Mos)'
           });
           saveData(data);
           renderUserDashboard(container, 'vehicles', data);
-          if (window.MotorWorks.showToast) window.MotorWorks.showToast('New vehicle registered to garage!', 'success');
+          if (window.CarHive.showToast) window.CarHive.showToast('New vehicle registered to garage!', 'success');
         });
       }
     } else if (section === 'appointments') {
       container.innerHTML =
         '<div class="dashboard-header">' +
-          '<div><h1>My Appointments</h1><p style="color:var(--steel);font-size:14px;">View scheduled service appointments or reserve a new workshop bay.</p></div>' +
-          '<a href="' + basePath + 'public/pages/booking.html" class="btn btn-solid">+ Reserve New Bay</a>' +
+          '<div><h1>My Requests</h1><p style="color:var(--steel);font-size:14px;">Every booking you have made, with the technician assigned and their ETA.</p></div>' +
+          '<a href="' + basePath + 'public/pages/booking.html" class="btn btn-solid">+ New Doorstep Request</a>' +
         '</div>' +
         '<div class="dashboard-widget">' +
-          '<h3>Scheduled & Pending Bookings</h3>' +
-          '<table class="dashboard-table" style="margin-top:16px;"><thead><tr><th>ID</th><th>Date & Time</th><th>Service Requested</th><th>Vehicle</th><th>Assigned Specialist</th><th>Status</th></tr></thead><tbody>' +
+          '<h3>Scheduled &amp; In-Progress Requests</h3>' +
+          '<table class="dashboard-table" style="margin-top:16px;"><thead><tr><th>Reference</th><th>Slot</th><th>Service Requested</th><th>Vehicle</th><th>Assigned Technician</th><th>Status</th></tr></thead><tbody>' +
           data.appointments.map(function(a) {
             var stClass = a.status === 'Completed' ? 'completed' : (a.status === 'Pending' ? 'pending' : 'active');
             return '<tr>' +
@@ -414,11 +418,11 @@
     } else if (section === 'history') {
       container.innerHTML =
         '<div class="dashboard-header">' +
-          '<div><h1>Service History Dockets</h1><p style="color:var(--steel);font-size:14px;">View signed digital dockets, technician notes, and past vehicle inspection reports.</p></div>' +
+          '<div><h1>Battery Service History</h1><p style="color:var(--steel);font-size:14px;">Signed test reports, warranty records, and technician notes for every visit we have completed.</p></div>' +
         '</div>' +
         '<div class="dashboard-widget">' +
-          '<h3>Completed Workshop Dockets</h3>' +
-          '<table class="dashboard-table" style="margin-top:16px;"><thead><tr><th>Date</th><th>Vehicle</th><th>Service Performed</th><th>Odometer</th><th>Technician</th><th>Total Paid</th><th>Digital Docket</th></tr></thead><tbody>' +
+          '<h3>Completed Battery Reports</h3>' +
+          '<table class="dashboard-table" style="margin-top:16px;"><thead><tr><th>Date</th><th>Vehicle</th><th>Service Performed</th><th>Odometer</th><th>Technician</th><th>Total Paid</th><th>Report</th></tr></thead><tbody>' +
           data.userHistory.map(function(h, idx) {
             return '<tr>' +
               '<td>' + h.date + '</td>' +
@@ -437,7 +441,7 @@
         btn.addEventListener('click', function() {
           var idx = btn.getAttribute('data-idx');
           var item = data.userHistory[idx];
-          alert('DIGITAL SERVICE DOCKET #' + (idx + 101) + '\n\nDate: ' + item.date + '\nVehicle: ' + item.vehicle + '\nService: ' + item.service + '\nTechnician: ' + item.tech + '\n40-Point Inspection: PASSED\nStatus: Signed off by Lead Tech');
+          alert('BATTERY SERVICE REPORT #' + (idx + 101) + '\n\nDate: ' + item.date + '\nVehicle: ' + item.vehicle + '\nService: ' + item.service + '\nTechnician: ' + item.tech + '\nBattery state of health: PASSED / Warranty: 24 months\nStatus: Signed off on site');
         });
       });
     } else if (section === 'invoices') {
@@ -464,7 +468,7 @@
       document.querySelectorAll('.btn-download-inv').forEach(function(btn) {
         btn.addEventListener('click', function() {
           var id = btn.getAttribute('data-id');
-          if (window.MotorWorks.showToast) window.MotorWorks.showToast('Downloading invoice ' + id + '.pdf...', 'success');
+          if (window.CarHive.showToast) window.CarHive.showToast('Downloading invoice ' + id + '.pdf...', 'success');
         });
       });
     } else if (section === 'profile') {
@@ -475,12 +479,12 @@
         '<div class="dashboard-widget" style="max-width:680px;">' +
           '<form id="userProfileForm">' +
             '<div class="profile-form-grid">' +
-              '<div><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">FIRST NAME</label><input type="text" value="Daniel" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
-              '<div><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">LAST NAME</label><input type="text" value="Richardson" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
+              '<div><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">FIRST NAME</label><input type="text" value="Daniel" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
+              '<div><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">LAST NAME</label><input type="text" value="Richardson" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
             '</div>' +
-            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">EMAIL ADDRESS</label><input type="email" value="daniel.r@example.com" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
-            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">PHONE NUMBER</label><input type="tel" value="+1 (312) 555-0199" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
-            '<div style="margin-bottom:24px;"><label style="display:block;font-size:12px;font-family:\'IBM Plex Mono\',monospace;color:var(--steel);margin-bottom:8px;">NEW PASSWORD (LEAVE BLANK TO KEEP CURRENT)</label><input type="password" placeholder="••••••••" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
+            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">EMAIL ADDRESS</label><input type="email" value="daniel.r@example.com" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
+            '<div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">PHONE NUMBER</label><input type="tel" value="+1 (312) 555-0199" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
+            '<div style="margin-bottom:24px;"><label style="display:block;font-size:12px;font-family:\'Montserrat, Quicksand, sans-serif;color:var(--steel);margin-bottom:8px;">NEW PASSWORD (LEAVE BLANK TO KEEP CURRENT)</label><input type="password" placeholder="••••••••" style="width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--bone);padding:10px 14px;font-size:14px;outline:none;"></div>' +
             '<button type="submit" class="btn btn-solid">Save Profile Changes</button>' +
           '</form>' +
         '</div>';
@@ -489,7 +493,7 @@
       if (profileForm) {
         profileForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          if (window.MotorWorks.showToast) window.MotorWorks.showToast('Profile information updated successfully!', 'success');
+          if (window.CarHive.showToast) window.CarHive.showToast('Profile information updated successfully!', 'success');
         });
       }
     }
@@ -507,10 +511,10 @@
 
     navLinks.forEach(function(link) {
       var sectionName = link.innerText.trim().toLowerCase();
-      if (sectionName.indexOf('dashboard') !== -1) link.setAttribute('data-section', 'dashboard');
+      if (sectionName.indexOf('overview') !== -1 || sectionName.indexOf('dashboard') !== -1) link.setAttribute('data-section', 'dashboard');
       else if (sectionName.indexOf('users') !== -1) link.setAttribute('data-section', 'users');
       else if (sectionName.indexOf('vehicles') !== -1) link.setAttribute('data-section', 'vehicles');
-      else if (sectionName.indexOf('appointments') !== -1) link.setAttribute('data-section', 'appointments');
+      else if (sectionName.indexOf('appointments') !== -1 || sectionName.indexOf('request') !== -1) link.setAttribute('data-section', 'appointments');
       else if (sectionName.indexOf('history') !== -1) link.setAttribute('data-section', 'history');
       else if (sectionName.indexOf('invoices') !== -1) link.setAttribute('data-section', 'invoices');
       else if (sectionName.indexOf('analytics') !== -1) link.setAttribute('data-section', 'analytics');
@@ -541,7 +545,7 @@
     }
   }
 
-  window.MotorWorks.initDashboards = initDashboards;
+  window.CarHive.initDashboards = initDashboards;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDashboards);
