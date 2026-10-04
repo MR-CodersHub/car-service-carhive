@@ -48,7 +48,6 @@
       '<a href="' + basePath + 'public/pages/home-2.html">Home 2</a>' +
       '<a href="' + basePath + 'public/pages/about.html">About</a>' +
       '<a href="' + basePath + 'public/pages/services.html">Services</a>' +
-      '<a href="' + basePath + 'public/pages/pricing.html">Pricing</a>' +
       '<a href="' + basePath + 'public/auth/blog.html">Blog</a>' +
       '<a href="' + basePath + 'public/pages/contact.html">Contact</a>' +
       '</nav>' +
@@ -78,10 +77,10 @@
     var mobileHTML =
       '<div class="mobile-menu" id="mobileMenu">' +
       '<a href="' + basePath + 'index.html">Home</a>' +
+      '<a href="' + basePath + 'public/pages/home-2.html">Home 2</a>' +
+      '<a href="' + basePath + 'public/auth/about.html">About</a>' +
       '<a href="' + basePath + 'public/pages/services.html">Services</a>' +
-      '<a href="' + basePath + 'public/pages/pricing.html">Pricing</a>' +
-      '<a href="' + basePath + 'public/auth/login.html">My Requests</a>' +
-      '<a href="' + basePath + 'public/pages/booking.html">Book a Visit</a>' +
+      '<a href="' + basePath + 'public/pages/blog.html">Blog</a>' +
       '<a href="' + basePath + 'public/pages/contact.html">Contact</a>' +
       '</div>';
 

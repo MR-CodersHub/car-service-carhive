@@ -588,7 +588,7 @@ input, select, textarea {
 }
 
 .hero h1 {
-  font-size: clamp(20px, 3vw, 66px);
+  font-size: clamp(20px, 4vw, 66px);
   max-width: 820px;
   color: var(--bone);
 }
