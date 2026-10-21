@@ -48,7 +48,7 @@
       '<a href="' + basePath + 'public/pages/home-2.html">Home 2</a>' +
       '<a href="' + basePath + 'public/pages/about.html">About</a>' +
       '<a href="' + basePath + 'public/pages/services.html">Services</a>' +
-      '<a href="' + basePath + 'public/auth/blog.html">Blog</a>' +
+      '<a href="' + basePath + 'public/pages/blog.html">Blog</a>' +
       '<a href="' + basePath + 'public/pages/contact.html">Contact</a>' +
       '</nav>' +
       '<div class="navcta">' +
@@ -78,7 +78,7 @@
       '<div class="mobile-menu" id="mobileMenu">' +
       '<a href="' + basePath + 'index.html">Home</a>' +
       '<a href="' + basePath + 'public/pages/home-2.html">Home 2</a>' +
-      '<a href="' + basePath + 'public/auth/about.html">About</a>' +
+      '<a href="' + basePath + 'public/pages/about.html">About</a>' +
       '<a href="' + basePath + 'public/pages/services.html">Services</a>' +
       '<a href="' + basePath + 'public/pages/blog.html">Blog</a>' +
       '<a href="' + basePath + 'public/pages/contact.html">Contact</a>' +
@@ -153,9 +153,15 @@
     }
 
     var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    if (!currentPage || currentPage === '') currentPage = 'index.html';
     document.querySelectorAll('.navlinks a').forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (href && href.indexOf(currentPage) !== -1) {
+      var href = link.getAttribute('href') || '';
+      var linkFile = href.split('/').pop();
+      if (linkFile === currentPage) {
+        link.classList.add('active');
+      } else if (currentPage.indexOf('blog') !== -1 && linkFile.indexOf('blog') !== -1) {
+        link.classList.add('active');
+      } else if (currentPage.indexOf('service') !== -1 && linkFile.indexOf('services') !== -1) {
         link.classList.add('active');
       }
     });

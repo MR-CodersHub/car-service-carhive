@@ -36,6 +36,7 @@
               '<h5>Book &amp; Manage</h5>' +
               '<a href="' + basePath + 'public/pages/booking.html">Book a Doorstep Visit</a>' +
               '<a href="' + basePath + 'public/pages/pricing.html">Pricing Guide</a>' +
+              '<a href="' + basePath + 'public/pages/blog.html">Knowledge Hub &amp; Blog</a>' +
               '<a href="' + basePath + 'public/auth/login.html">Login to My Requests</a>' +
               '<a href="' + basePath + 'auth/user/user-dashboard.html">Request Dashboard</a>' +
               '<a href="' + basePath + 'public/pages/faq.html">FAQs</a>' +

@@ -264,5 +264,44 @@
         '<strong style="color:var(--amber);display:block;margin-bottom:6px;">STRANDED RIGHT NOW?</strong>' +
         '<p style="margin:0;font-size:14px;color:var(--steel);">Call +1 (312) 555-0148 for a 45-minute dispatch, or book a $49 jump-start online. The battery test is included either way.</p>' +
         '</div>'
-    }  ];
+    },
+    {
+      id: 'agm-vs-efb-batteries',
+      title: 'AGM vs. EFB Batteries: Which Does Your Car Actually Need?',
+      category: 'Battery Care',
+      date: 'May 04, 2026',
+      readTime: '6 min read',
+      excerpt: 'Modern stop-start vehicles demand specialized battery architectures. Installing the wrong chemistry causes premature failure within months.',
+      image: 'assets/img/diagnostics-service.jpg',
+      content: '<p>If your vehicle is equipped with an automatic start-stop engine system, regenerative braking, or heavy electrical infotainment draws, you cannot fit a standard flooded battery. Doing so will often trigger charging errors and destroy the battery in under six months.</p>' +
+        '<h3>Absorbent Glass Mat (AGM)</h3>' +
+        '<p>AGM batteries hold their acid in micro-glass fiber mats rather than free-floating liquid. They charge up to 5 times faster, handle deep cyclic discharge without losing plate mass, and can endure hundreds of thousands of starts.</p>' +
+        '<h3>Enhanced Flooded Battery (EFB)</h3>' +
+        '<p>EFB batteries improve on standard flooded designs with poly-fleece scrims and thicker plates. They offer roughly twice the cycle durability of conventional batteries and are common on entry-level stop-start vehicles without regenerative braking.</p>' +
+        '<h3>Why Registration and Coding Matter</h3>' +
+        '<p>When fitting a new AGM or EFB battery, the battery management system (BMS) must be informed via OBD diagnostics. If you skip registration, the alternator continues to treat the battery as degraded, overcharging it and shortening its service life.</p>' +
+        '<div style="background:var(--panel-2);border-left:4px solid var(--amber);padding:20px;margin:30px 0;">' +
+        '<strong style="color:var(--amber);display:block;margin-bottom:6px;">EXACT OEM MATCHING:</strong>' +
+        '<p style="margin:0;font-size:14px;color:var(--steel);">Every Car Hive mobile technician carries OEM-certified AGM and EFB replacement units with complete on-site BMS reset included in the fixed replacement fee.</p>' +
+        '</div>'
+    },
+    {
+      id: 'parasitic-battery-drain-guide',
+      title: 'How Technicians Trace and Fix Parasitic Battery Drains',
+      category: 'How-To',
+      date: 'July 12, 2026',
+      readTime: '5 min read',
+      excerpt: 'If your battery dies every morning despite being brand new, a silent electrical draw is bleeding voltage overnight. Here is how it is found.',
+      image: 'assets/img/computer.jpg',
+      content: '<p>A brand new battery that goes flat after parking for 24 to 48 hours is almost never defective. Instead, an onboard computer module, aftermarket accessory, or corroded harness relay is failing to enter sleep mode.</p>' +
+        '<h3>Acceptable vs. Unacceptable Resting Draw</h3>' +
+        '<p>A modern vehicle typically draws between 20mA and 50mA once the CAN bus networks go to sleep. A continuous draw above 80mA to 100mA will discharge a typical 60Ah battery to an uncrankable state in less than a weekend.</p>' +
+        '<h3>The Voltage Drop Testing Technique</h3>' +
+        '<p>Rather than pulling fuses — which wakes up sleeping computer modules and spoils test data — certified technicians measure millivolt drop across each fuse with a precision digital multimeter. The Ohm\'s law table reveals which circuit is active.</p>' +
+        '<div style="background:var(--panel-2);border-left:4px solid var(--amber);padding:20px;margin:30px 0;">' +
+        '<strong style="color:var(--amber);display:block;margin-bottom:6px;">DRAIN DIAGNOSIS AT YOUR DOOR:</strong>' +
+        '<p style="margin:0;font-size:14px;color:var(--steel);">We bring automotive digital oscilloscopes and current clamps to trace parasitic draws wherever your vehicle is parked. Flat-rate from $79.</p>' +
+        '</div>'
+    }
+  ];
 })();

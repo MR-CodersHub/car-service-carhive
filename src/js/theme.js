@@ -57,13 +57,13 @@
   }
 
   document.addEventListener('click', function(e) {
-    var themeBtn = e.target.closest('#themeToggle');
+    var themeBtn = e.target.closest('#themeToggle, .theme-toggle, [aria-label*="theme" i]');
     if (themeBtn) {
       e.preventDefault();
       toggleTheme();
       return;
     }
-    var rtlBtn = e.target.closest('#rtlToggle');
+    var rtlBtn = e.target.closest('#rtlToggle, .rtl-toggle, [aria-label*="RTL" i]');
     if (rtlBtn) {
       e.preventDefault();
       toggleRTL();
